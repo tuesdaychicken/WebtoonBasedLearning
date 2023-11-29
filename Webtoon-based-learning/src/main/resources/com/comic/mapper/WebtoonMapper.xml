@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.comic.mapper.NaverWebtoonMapper">
+
+	<select id="weekSelect"	resultType="com.comic.domain.NaverWebtoonVO">
+		SELECT nw.webtoon_NUM, nw.webtoon_TITLE, nw.webtoon_COVER, ww.week_DAY
+		FROM NAVER_WEBTOON nw
+		LEFT JOIN WEBTOON_WEEK ww ON nw.webtoon_NUM = ww.webtoon_NUM
+	</select>
+	
+	<insert id="episodeInsert" parameterType="java.util.HashMap">
+	INSERT INTO WEBTOON_EPISODE 
+	(episode_NUM, episode_TITLE, episode_TEXT, episode_COVER, episodeCONTENT, webtoon_NUM) 
+	VALUES 
+	(W_E_SEQ.NEXTVAL, #{episode_TITLE}, #{episode_TEXT}, #{episode_COVER}, #{episodeContent}, #{webtoon_NUM})
+	</insert>
+	
+	<select id="episodeSelect" resultType="java.util.HashMap">
+		SELECT * 
+		FROM WEBTOON_EPISODE 
+		WHERE webtoon_NUM = #{webtoon_NUM}
+	</select>
+	
+	<select id="episodeDetailSelect" resultType="java.util.HashMap">
+		SELECT * 
+		FROM WEBTOON_EPISODE 
+		WHERE 
+			webtoon_NUM = #{webtoon_NUM} 
+			AND 
+			episode_NUM = #{episode_NUM}
+	</select>
+	
+	<update id="episodeUpdate" parameterType="java.util.HashMap">
+		UPDATE WEBTOON_EPISODE 
+		SET episode_TITLE = #{episode_TITLE}, episode_TEXT = #{episode_TEXT}, episode_COVER = #{episode_COVER}, episodeCONTENT = #{episodeContent}
+		WHERE episode_NUM = #{episode_NUM} AND webtoon_NUM = #{webtoon_NUM}
+	</update>
+	
+	<delete id="episodeDelete" parameterType="java.util.HashMap">
+		DELETE FROM WEBTOON_EPISODE
+		WHERE episode_NUM = #{episode_NUM} AND webtoon_NUM = #{webtoon_NUM} 
+	</delete>
+	
+</mapper>
+
+

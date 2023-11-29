@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.comic.mapper.NaverMypageMapper">
+
+	<select id="webtoonSelect" resultType="java.util.HashMap">
+		SELECT * 
+		FROM NAVER_WEBTOON 
+		WHERE webtoon_NUM = #{webtoon_NUM}  
+	</select>
+
+	<insert id="webtoonInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+		INSERT INTO NAVER_WEBTOON
+		(webtoon_NUM, webtoon_TITLE, webtoon_AGE, webtoon_INFO, webtoon_COVER, webtoon_INTRD_COVER)
+		VALUES
+		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo}, #{webtoonCover}, #{webtoonIntrdCover})
+	</insert>
+
+	<insert id="webtoonWeekInsert" parameterType="java.util.HashMap">
+		INSERT INTO WEBTOON_WEEK 
+    	VALUES 
+    	(#{week_DAY}, #{webtoon_TITLE}, 
+    	(SELECT webtoon_NUM FROM NAVER_WEBTOON WHERE webtoon_TITLE = #{webtoon_TITLE} AND webtoon_INFO = #{webtoon_INFO}))
+	</insert>
+
+	<insert id="webtoonGenreInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+		INSERT INTO WEBTOON_GENRE
+		VALUES
+		(#{genreType}, #{webtoon_TITLE}, 
+		(SELECT webtoon_NUM FROM NAVER_WEBTOON WHERE webtoon_TITLE = #{webtoon_TITLE} AND webtoon_INFO = #{webtoon_INFO}))
+	</insert>
+	
+	<update id="webtoonUpdate" parameterType="java.util.HashMap">
+		UPDATE NAVER_WEBTOON
+		SET webtoon_TITLE = #{webtoon_TITLE}, webtoon_AGE = #{webtoon_AGE}, webtoon_INFO = #{webtoon_INFO}, webtoon_COVER = #{webtoon_COVER}, webtoon_INTRD_COVER = #{webtoon_INTRD_COVER}
+		WHERE webtoon_NUM = #{webtoon_NUM}
+	</update>
+	
+	<delete id="webtoonDelete">
+		DELETE FROM NAVER_WEBTOON
+		WHERE webtoon_NUM = #{webtoon_NUM}
+	</delete>
+	
+	<delete id="webtoonWeekDelete">
+		DELETE FROM WEBTOON_WEEK
+		WHERE webtoon_NUM = #{webtoon_NUM}
+	</delete>
+	
+	<delete id="webtoonGenreDelete">
+		DELETE FROM WEBTOON_GENRE
+		WHERE webtoon_NUM = #{webtoon_NUM}
+	</delete>
+</mapper>
+
+

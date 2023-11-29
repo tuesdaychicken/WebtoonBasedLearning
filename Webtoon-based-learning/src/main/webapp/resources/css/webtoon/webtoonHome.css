@@ -1,0 +1,169 @@
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.webtoon{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.webtoon_spot{
+    display: flex;
+    width: 1190px;
+    justify-content: space-between;
+    
+}
+
+.ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 0px;
+    width: 840px;
+}
+
+.ad_img{
+    margin-top: 70px;
+    width: 300px;
+    height: 270px;
+    background-color: brown;
+    border-radius: 18px;
+}
+
+.line_limit{
+    width: 272px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+    
+    line-height: 20px;
+    height: 40px;
+    color: var(--color-text-addition);
+    word-break: break-word;
+}
+
+.title{
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.writer{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.info{
+    margin-top: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666666;
+}
+
+.spot{
+	margin-right: 13px;
+}
+
+.spot_img{
+    width: 272px;
+    height: 165px;
+    border-radius: 18px;
+}
+
+.middle_banner{
+    width: 1190px;
+    height: 100px;
+   
+}
+
+.view_type{ 
+    width: 1190px;
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+}
+
+.view_font{
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 0px;
+}
+
+.type_li{
+    margin-left: 8px;
+    margin-right: 8px;
+    
+}
+
+.type_ul{
+    color : black;
+    display: flex;
+    padding-left: 13px;
+   
+}
+
+.list_area{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-around;
+    width: 1190px;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 168.86px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb;
+}
+
+.webtoon_TITLE{
+	color: black;
+}
+
+.col2{
+    border-right: 1px solid #ebebeb;
+}
+
+.col_ul{
+    list-style: none;
+    padding-left: 0px;
+    
+}
+
+.col_li{
+	margin-top: 25px;
+}
+
+.col_font{
+    display: flex;
+    width: 160px;
+}
+
+.poster_img{
+    width: 160px;
+    height: 207px;
+    background-color: blue;
+}
+
+
+
