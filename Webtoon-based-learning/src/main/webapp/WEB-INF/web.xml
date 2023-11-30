@@ -9,17 +9,7 @@
 	</welcome-file-list>
 
 	
-
-	<!-- The definition of the Root Spring Container shared by all Servlets 
-		and Filters -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/spring/root-context.xml
-			/WEB-INF/spring/security-context.xml
-			<!-- 이부분이 서버가동할 때 xml이 시큐리티 콘텍스트를 찾아가게 연결하는 부분 -->
-		</param-value>
-	</context-param>
+	
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
@@ -56,23 +46,30 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<!-- 한글깨짐 방지 -->
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+<!-- The definition of the Root Spring Container shared by all Servlets 
+		and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring/root-context.xml
+			/WEB-INF/spring/security-context.xml
+			<!-- 이부분이 서버가동할 때 xml이 시큐리티 콘텍스트를 찾아가게 연결하는 부분 -->
+		</param-value>
+	</context-param>
+
+<!-- 한글깨짐 방지 -->
 	<!-- filter와 filter-mapping을 만들어 준다. -->
 	<filter>
 		<!-- filter안에는 filter-name, filter-class, init-param을 추가해 준다. filter-name은 
 			원하는대로 지정해도됨 -->
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
-		<init-param>
-			<!-- encoidng값을 UTF-8로 만들어 준다. -->
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 
 </web-app>
