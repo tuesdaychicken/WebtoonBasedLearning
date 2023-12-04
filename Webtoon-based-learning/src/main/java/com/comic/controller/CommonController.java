@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * 
+ * */
 @Log4j
 @Controller
 public class CommonController {
-	//시바 여기 어떡하지 차분히 하자
 
 	@GetMapping("/accessError")
 	public void accessDenied(Authentication auth, Model model) {

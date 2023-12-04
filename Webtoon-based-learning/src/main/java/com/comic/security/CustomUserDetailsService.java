@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.zerock.security.domain.CustomUser;
 
 import com.comic.domain.NaverMemberVO;
 import com.comic.mapper.NaverMemberMapper;
+import com.comic.security.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;
 

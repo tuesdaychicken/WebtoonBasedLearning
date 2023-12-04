@@ -48,10 +48,11 @@
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 
-<!--  <bean id="customAccessDenied" class="org.zerock.security.CustomAccessDeniedHandler"></bean>
-<bean id="customLoginSuccess" class="org.zerock.security.CustomLoginSuccessHandler"></bean>
-<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>-->
-<!-- 잠시보류 -->
+
+<bean id="customAccessDenied" class="com.comic.security.CustomAccessDeniedHandler"></bean>
+<bean id="customLoginSuccess" class="com.comic.security.CustomLoginSuccessHandler"></bean>
+<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+
 
 <!-- <bean id="customNoOpPasswordEncoder" class="org.zerock.security.CustomNoOpPasswordEncoder"></bean> -->
 <bean id="customUserDetailsService" class="com.comic.security.CustomUserDetailsService">
@@ -62,71 +63,12 @@
 
 	<!-- 해당 페이지에 접근제한을 주는 부분 -->
 	<security:http>
-	
-	<!--오류페이지 설정시 에러페이지로 연결하면 해당 속성으로 넣어주는걸로 바꿔줘야함
-	<security:http auto-config="true" use-expressions="true"> -->	
-	
-		<security:intercept-url pattern="/sample/all" access="permitAll"/>
-		<!-- permitAll은 누구든지 접근이 가능하게 한다는 의미 -->
-		
-		<security:intercept-url pattern="/sample/member" access="hasRole('MEMBER')"/>
-		<!-- access="hasRole('ROLE_MEMBER')" 부분은 access의 표현식과 권한명으로 이루어짐
-		해당 페이지를 다음과 같이 설정하면 접속할 경우 인증(ROLE_MEMBER이라는 권한을 가지고 있는가?)이 필요하게 됨
-		권한명에 ROLE가 무조건 들어가야 하나보다 이유는 꼭 찾아보자
-		* 궁금증 해결 알아본 결과 인증을 부여할 때 Role_가 안적혀 있으면 자동을 생성됨 하지만 아래
-		  provider에 user 부분에는 Role_가 있어야 함-->
-		
-		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
-
-		<!-- <security:form-login /> -->
-		<!-- <security:form-login login-page="/customLogin"/> -->
-		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
-		<!-- 로그인 성공시 이벤트 발생을 위한 빈 등록? -->
-		
-		<!-- <security:logout logout-url="/customLogout" invalidate-session="true"/> -->
-		<!-- 로그아웃 처리 성공하면 캐시값 삭제-->
-		<security:logout logout-url="/customLogout" invalidate-session="true"
-		delete-cookies="remember-me, JSESSIONID"/>
-		
-		<!-- <security:access-denied-handler error-page="/accessError"/> -->
-		<security:access-denied-handler ref="customAccessDenied"/>
-		<!-- 로그인에 문제가 발생할경우 보여주는 페이지를 연결 -->
-		
-		<!-- <security:csrf disabled="true"/> -->
-		<!-- 토큰생성을 활성 or 비활성 -->
-		
-		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
-		<!-- 자동로그인을 위해 추가한 부분 -->
-		
+		<security:form-login/>
 	</security:http>
 
 	
 	<!-- 인증 관련 부분 -->
 	 <security:authentication-manager>
-		
-		 <security:authentication-provider user-service-ref="customUserDetailsService">
-		
-			<!-- <security:user-service>
-				
-				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
-				유저에게 권한 ROLE_MEMBER을 준다 해당 유저의 name과 password는 위와 같아야 한다
-				{noop}는 비밀번호의 인코딩처리를 하지 않는다는 의미
-				
-				<security:user name="admin" password="{noop}admin" authorities="ROLE_MEMBER, ROLE_ADMIN"/>
-				admin 유저에게 두개의 권한을 준다
-				
-			</security:user-service> -->
-			<!-- <security:jdbc-user-service data-source-ref="dataSource"/> -->
-			<!-- <security:jdbc-user-service data-source-ref="dataSource" 
-			users-by-username-query="select userid, userpw, enabled from tbl_member where userid = ?"
-			authorities-by-username-query="select userid, auth from tbl_member_auth where userid = ?"/> -->
-			<!-- 위에 속성으로 user-service-ref에 별도로 만들어 주었기 때문에  -->
-			
-			<!--  <security:password-encoder ref="customNoOpPasswordEncoder"/> 
-					패스워드 인코딩과정을 거치지 않는 방식-->
-			 <security:password-encoder ref="bcryptPasswordEncoder"/>
-		
-		</security:authentication-provider>
 		
 	 </security:authentication-manager>
 
