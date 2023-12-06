@@ -29,7 +29,7 @@ public class NaverHomeController {
 	 *@param 인자값
 	 *@return 리턴값
 	 */
-	@GetMapping("/naver")
+	@GetMapping("naver")
 	public String indexPage(Model model) {
 		
 		model.addAttribute("webtoon", naverWebtoonService.webtoonWeekDay());

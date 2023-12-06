@@ -24,8 +24,8 @@ public class XmlAppContextTest {
 	
 	
 
-	GenericXmlApplicationContext ac = new GenericXmlApplicationContext("file:/Users/SKYPC183/git/Last_Project/src/main/webapp/WEB-INF/spring/security-context.xml");
-								
+	GenericXmlApplicationContext ac = new GenericXmlApplicationContext("file:/Users/SKYPC183/git/WebtoonBasedLearning/Webtoon-based-learning/src/main/webapp/WEB-INF/spring/root-context.xml");
+											
 	
 	@Test
 	public void beanTest() {

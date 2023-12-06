@@ -6,10 +6,30 @@
 
 <mapper namespace="com.comic.mapper.NaverWebtoonMapper">
 
+<!--  <resultMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO">
+  <result column="WEBTOON_NUM" property="webtoonNum"/>
+  <result column="WEBTOON_TITLE" property="webtoonTitle"/>
+  <result column="WEBTOON_AGE" property="webtoonAge"/>
+  <result column="WEBTOON_INFO" property="webtoonInfo"/>
+  <result column="WEBTOON_GPA" property="webtoonGpa"/>
+  <result column="WEBTOON_LIKE" property="webtoonLike"/>
+  <result column="WEBTOON_COVER" property="webtoonCover"/>
+  <result column="WEBTOON_INTRD_COVER" property="webtoonIntrdCover"/>
+  <result column="WEEK_DAY" property="weekDay"/>
+  
+</resultMap>-->
+
 	<select id="weekSelect"	resultType="com.comic.domain.NaverWebtoonVO">
-		SELECT nw.webtoon_NUM, nw.webtoon_TITLE, nw.webtoon_COVER, ww.week_DAY
-		FROM NAVER_WEBTOON nw
-		LEFT JOIN WEBTOON_WEEK ww ON nw.webtoon_NUM = ww.webtoon_NUM
+		SELECT
+			NW.WEBTOON_NUM
+			, NW.WEBTOON_TITLE
+			, NW.WEBTOON_COVER
+			, W.WEEK_DAY
+		FROM
+			NAVER_WEBTOON NW LEFT JOIN WEBTOON_WEEK WW
+			ON NW.WEBTOON_NUM = WW.WEBTOON_NUM
+			LEFT JOIN WEEK W
+			ON WW.WNUM = W.WNUM
 	</select>
 	
 	<insert id="episodeInsert" parameterType="java.util.HashMap">

@@ -68,10 +68,10 @@
                     <ul class="col_ul">
 
                         <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '월요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '월요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="resources/img/naver.JPG" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="resources/img/naver.JPG" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -82,10 +82,10 @@
                     <h4>화요웹툰</h4>
                     <ul class="col_ul">
                         <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '화요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '화요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -96,10 +96,10 @@
                     <h4>수요웹툰</h4>
                     <ul class="col_ul">
                        <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '수요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '수요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -110,10 +110,10 @@
                     <h4>목요웹툰</h4>
                     <ul class="col_ul">
                         <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '목요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '목요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -124,10 +124,10 @@
                     <h4>금요웹툰</h4>
                     <ul class="col_ul">
                         <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '금요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '금요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -138,10 +138,10 @@
                     <h4>토요웹툰</h4>
                     <ul class="col_ul">
                        <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '토요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '토요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>
@@ -152,10 +152,10 @@
                     <h4>일요웹툰</h4>
                     <ul class="col_ul">
                        <c:forEach var="comic" items="${webtoon}">
-							<c:if test="${comic.week_DAY eq '일요일'}"> 
+							<c:if test="${comic.WEEK_DAY eq '일요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}"><img src="" alt="" class="poster_img"></a>
-                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.webtoon_NUM}" class="webtoon_TITLE">${comic.webtoon_TITLE}</a></div>
+                                <a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}"><img src="" alt="" class="poster_img"></a>
+                                <div class="col_font"><a href="webtoon/list?webtoon_NUM=${comic.WEBTOON_NUM}" class="webtoon_TITLE">${comic.WEBTOON_TITLE}</a></div>
                             </li>
 							</c:if>
                         </c:forEach>

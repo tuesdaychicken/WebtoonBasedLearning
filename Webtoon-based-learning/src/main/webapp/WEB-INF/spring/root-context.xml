@@ -70,13 +70,6 @@
 		<constructor-arg ref="naverWebtoonMapper"/>
 	</bean>
 	
-	
-
-	
-	
-	
-	<mybatis-spring:scan base-package="com.comic.mapper"/>
-	
 	<context:component-scan base-package="com.comic.service"></context:component-scan>
 	
 </beans>
