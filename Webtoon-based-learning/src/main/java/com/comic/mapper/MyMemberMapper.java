@@ -1,10 +1,13 @@
 package com.comic.mapper;
 
+
 import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
+
 import com.comic.domain.NaverMemberVO;
 
 @Mapper
-public interface NaverMemberMapper {
+public interface MyMemberMapper {
 	
 	public int memberInsert(NaverMemberVO member);
 	

@@ -43,8 +43,8 @@
 	
 	<tx:annotation-driven/>
 	
-	<bean id="naverMemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.comic.mapper.NaverMemberMapper"/>
+	<bean id="myMemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.comic.mapper.MyMemberMapper"/>
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
@@ -59,7 +59,7 @@
 	</bean>
 	
 	<bean id="naverMemberService" class="com.comic.service.NaverMemberServiceImpl">
-		<constructor-arg ref="naverMemberMapper"/>
+		<constructor-arg ref="myMemberMapper"/>
 	</bean>	
 	
 	<bean id="naverMypageService" class="com.comic.service.NaverMypageServiceImpl">
@@ -69,6 +69,11 @@
 	<bean id="naverWebtoonService" class="com.comic.service.NaverWebtoonServiceImpl">
 		<constructor-arg ref="naverWebtoonMapper"/>
 	</bean>
+	
+	
+
+	
+	
 	
 	<mybatis-spring:scan base-package="com.comic.mapper"/>
 	
