@@ -22,7 +22,7 @@ public class NaverWebtoonServiceImpl implements NaverWebtoonService {
 	}
 	
 	@Override
-	public List<NaverWebtoonVO> webtoonweek_DAY() {
+	public List<NaverWebtoonVO> webtoonWeekDay() {
 		// TODO Auto-generated method stub
 		return naverWebtoonMapper.weekSelect();
 	}

@@ -10,7 +10,7 @@ import com.comic.domain.NaverWebtoonVO;
 
 public interface NaverWebtoonService {
 	
-	public List<NaverWebtoonVO> webtoonweek_DAY();
+	public List<NaverWebtoonVO> webtoonWeekDay();
 	
 	public HashMap<String, String> detailWebtoonSerch(Map<String, Integer> webtoonKey);
 	
@@ -23,4 +23,5 @@ public interface NaverWebtoonService {
 	public boolean EpisodeModify(Map<String, Object> episodeObj);
 	
 	public boolean EpisodeRemove(Map<String, Integer> episodeObj);
+
 }
