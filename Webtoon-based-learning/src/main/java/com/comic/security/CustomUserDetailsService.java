@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.comic.domain.NaverMemberVO;
-import com.comic.mapper.MyMemberMapper;
+import com.comic.mapper.NaverMemberMapper;
 import com.comic.security.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;
@@ -18,9 +18,9 @@ import lombok.extern.log4j.Log4j;
 public class CustomUserDetailsService{
 
 	@Autowired
-	private final MyMemberMapper naverMemberMapper;
+	private final NaverMemberMapper naverMemberMapper;
 	
-	public CustomUserDetailsService(MyMemberMapper mapper) {
+	public CustomUserDetailsService(NaverMemberMapper mapper) {
 		
 		this.naverMemberMapper = mapper;
 		
