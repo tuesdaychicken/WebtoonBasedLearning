@@ -38,19 +38,19 @@ CREATE TABLE WEBTOON_GENRE(
 public class NaverWebtoonVO {
 	
 	//웹툰 기본키
-	private int WEBTOON_NUM;
+	private int webtoonNum;
 	
 	//웹툰 정보
-	private String WEBTOON_TITLE;
+	private String webtoonTitle;
 	private String webtoonAge;
 	private String webtoonInfo;
 	private int webtoonGpa;
 	private int webtoonLike;
-	private String WEBTOON_CORVER;
+	private String webtoonCover;
 	private String webtoonIntrdCover;
 	
 	//다른 테이블 연결?
-	private String WEEK_DAY;
+	private String weekDay;
 	
 	//private String genreType;
 }

@@ -6,7 +6,7 @@
 
 <mapper namespace="com.comic.mapper.NaverWebtoonMapper">
 
-<!--  <resultMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO">
+<resultMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO">
   <result column="WEBTOON_NUM" property="webtoonNum"/>
   <result column="WEBTOON_TITLE" property="webtoonTitle"/>
   <result column="WEBTOON_AGE" property="webtoonAge"/>
@@ -17,9 +17,9 @@
   <result column="WEBTOON_INTRD_COVER" property="webtoonIntrdCover"/>
   <result column="WEEK_DAY" property="weekDay"/>
   
-</resultMap>-->
+</resultMap>
 
-	<select id="weekSelect"	resultType="com.comic.domain.NaverWebtoonVO">
+	<select id="weekSelect"	resultMap="naverWebtoonVO">
 		SELECT
 			NW.WEBTOON_NUM
 			, NW.WEBTOON_TITLE
