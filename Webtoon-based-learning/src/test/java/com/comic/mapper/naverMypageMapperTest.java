@@ -47,10 +47,10 @@ public class naverMypageMapperTest {
 		//vo.put("webtoonCover","51");
 		//vo.put("webtoonIntrdCover","51");
 		
-		//vo.setWebtoonTitle("나는 문어");
+		vo.setWebtoonTitle("나는 문어");
 		vo.setWebtoonAge("5");
 		vo.setWebtoonInfo("문어 난 문어");
-		//vo.setWebtoonCover("sad");
+		vo.setWebtoonCover("sad");
 		vo.setWebtoonIntrdCover("sd");
 		
 		log.info(vo);
