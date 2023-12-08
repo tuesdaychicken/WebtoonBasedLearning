@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonEpisodeVO;
 import com.comic.mapper.NaverWebtoonMapper;
 
 @Service("NaverWebtoonService")
@@ -28,19 +29,19 @@ public class NaverWebtoonServiceImpl implements NaverWebtoonService {
 	}
 
 	@Override
-	public HashMap<String, String> detailWebtoonSerch(Map<String, Integer> webtoonKey) {
+	public List<NaverWebtoonVO> detailWebtoonSerch(NaverWebtoonVO webtoonKey) {
 		// TODO Auto-generated method stub
 		return  naverWebtoonMapper.webtoonSelect(webtoonKey);
 	}
 
 	@Override
-	public boolean EpisodeRegister(Map<String, Object> episodeObj) {
+	public boolean EpisodeRegister(WebtoonEpisodeVO episodeVO) {
 		// TODO Auto-generated method stub
-		return naverWebtoonMapper.episodeInsert(episodeObj) == 1 ? true:false;
+		return naverWebtoonMapper.episodeInsert(episodeVO) == 1 ? true:false;
 	}
 
 	@Override
-	public List<HashMap<String, String>> detailEpisodeAllSerch(Map<String, Integer> webtoonKey) {
+	public List<NaverWebtoonVO> detailEpisodeAllSerch(NaverWebtoonVO webtoonKey) {
 		// TODO Auto-generated method stub
 		return naverWebtoonMapper.episodeSelect(webtoonKey);
 	}

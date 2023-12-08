@@ -24,13 +24,12 @@ public class WebtoonEpisodeVO {
 
 	private int episodeNum;
 	private String episodeTitle;
-	private int episodeGRaed;
+	private int episodeGraed;
 	private int episodeLike;
 	private Date episodeDate;
 	private String episodeText;
 	private String episodeCover;
 	
-	//private String episodeContent;
 	
 	private int webtoonNum;
 }

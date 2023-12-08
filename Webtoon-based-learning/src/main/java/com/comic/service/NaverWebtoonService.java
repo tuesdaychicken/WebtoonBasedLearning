@@ -6,17 +6,18 @@ import java.util.Map;
 
 
 import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonEpisodeVO;
 
 
 public interface NaverWebtoonService {
 	
 	public List<NaverWebtoonVO> webtoonWeekDay();
 	
-	public HashMap<String, String> detailWebtoonSerch(Map<String, Integer> webtoonKey);
+	public List<NaverWebtoonVO> detailWebtoonSerch(NaverWebtoonVO webtoonKey);
 	
-	public boolean EpisodeRegister(Map<String, Object> episodeObj);
-	
-	public List<HashMap<String, String>> detailEpisodeAllSerch(Map<String, Integer> webtoonKey);
+	public List<NaverWebtoonVO> detailEpisodeAllSerch(NaverWebtoonVO webtoonKey);
+
+	public boolean EpisodeRegister(WebtoonEpisodeVO episodeVO);
 	
 	public HashMap<String, String> detailEpisodeSerch(Map<String, Integer> episodeKey);
 	

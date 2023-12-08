@@ -32,17 +32,23 @@
 			ON WW.WNUM = W.WNUM
 	</select>
 	
-	<insert id="episodeInsert" parameterType="java.util.HashMap">
+	<select id="webtoonSelect" resultMap="naverWebtoonVO">
+		SELECT * 
+		FROM NAVER_WEBTOON 
+		WHERE WEBTOON_NUM = #{webtoonNum}  
+	</select>
+	
+	<insert id="episodeInsert" parameterType="com.comic.domain.WebtoonEpisodeVO">
 	INSERT INTO WEBTOON_EPISODE 
-	(episode_NUM, episode_TITLE, episode_TEXT, episode_COVER, episodeCONTENT, webtoon_NUM) 
+	(EPISODE_NUM, EPISODE_TITLE, EPISODE_TEXT, EPISODE_COVER, WEBTOON_NUM) 
 	VALUES 
-	(W_E_SEQ.NEXTVAL, #{episode_TITLE}, #{episode_TEXT}, #{episode_COVER}, #{episodeContent}, #{webtoon_NUM})
+	(W_E_SEQ.NEXTVAL, #{episodeTitle}, #{episodeText}, #{episodeCover}, #{webtoonNum})
 	</insert>
 	
-	<select id="episodeSelect" resultType="java.util.HashMap">
+	<select id="episodeSelect" resultMap="naverWebtoonVO">
 		SELECT * 
 		FROM WEBTOON_EPISODE 
-		WHERE webtoon_NUM = #{webtoon_NUM}
+		WHERE WEBTOON_NUM = #{webtoonNum}
 	</select>
 	
 	<select id="episodeDetailSelect" resultType="java.util.HashMap">

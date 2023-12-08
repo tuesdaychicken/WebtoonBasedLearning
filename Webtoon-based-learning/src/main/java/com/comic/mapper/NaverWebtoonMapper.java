@@ -8,21 +8,23 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonEpisodeVO;
 
 @Mapper
 public interface NaverWebtoonMapper {
 	
 	public List<NaverWebtoonVO> weekSelect();
 	
-	public HashMap<String, String> webtoonSelect(Map<String, Integer> webtoonKey);
+	public List<NaverWebtoonVO> webtoonSelect(NaverWebtoonVO webtoonKey);
 	
-	public int episodeInsert(Map<String, Object> episodeObj);
+	public int episodeInsert(WebtoonEpisodeVO episodeVO);
 	
-	public List<HashMap<String, String>> episodeSelect(Map<String, Integer> webtoonKey);
+	public List<NaverWebtoonVO> episodeSelect(NaverWebtoonVO webtoonKey);
 	
 	public HashMap<String, String> episodeDetailSelect(Map<String, Integer> episodeKey);
 	
 	public int episodeUpdate(Map<String, Object> episodeObj);
 	
 	public int episodeDelete(Map<String, Integer> episodeKey);
+	
 }

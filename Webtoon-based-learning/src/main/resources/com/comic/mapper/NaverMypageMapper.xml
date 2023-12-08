@@ -6,11 +6,7 @@
   
 <mapper namespace="com.comic.mapper.NaverMypageMapper">
 
-	<select id="webtoonSelect" resultType="java.util.HashMap">
-		SELECT * 
-		FROM NAVER_WEBTOON 
-		WHERE webtoon_NUM = #{webtoon_NUM}  
-	</select>
+	
 
 	<insert id="webtoonInsert" parameterType="com.comic.domain.NaverWebtoonVO">
 		INSERT INTO NAVER_WEBTOON

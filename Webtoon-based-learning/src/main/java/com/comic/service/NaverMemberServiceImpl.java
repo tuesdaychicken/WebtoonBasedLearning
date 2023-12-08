@@ -27,9 +27,9 @@ public class NaverMemberServiceImpl implements NaverMemberService {
 	}
 
 	@Override
-	public NaverMemberVO MemberLogin(NaverMemberVO user_NAME) {
+	public NaverMemberVO MemberLogin(NaverMemberVO userName) {
 		// TODO Auto-generated method stub
-		return naverMemberMapper.memberSelect(user_NAME);
+		return naverMemberMapper.memberSelect(userName);
 	}
 
 }

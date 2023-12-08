@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.comic.domain.NaverWebtoonVO;
 import com.comic.service.NaverWebtoonService;
 
 /**
@@ -37,9 +38,13 @@ public class NaverWebtoonController {
 	@GetMapping("/list")
 	public String webtoonList(int webtoonNum, Model model) {
 		
-		Map<String, Integer> webtoonKey = Map.of(
-				"webtoonNum", webtoonNum
-			);
+//		Map<String, Integer> webtoonKey = Map.of(
+//				"webtoonNum", webtoonNum
+//			);
+		
+		NaverWebtoonVO webtoonKey = new NaverWebtoonVO();
+		
+		webtoonKey.setWebtoonNum(webtoonNum);
 		
 		model.addAttribute("webtoon", naverWebtoonService.detailWebtoonSerch(webtoonKey));
 		
@@ -63,7 +68,7 @@ public class NaverWebtoonController {
 		
 		episodeObj.put("webtoonNum", Integer.parseInt(String.valueOf(episodeObj.get("webtoonNumObj"))));
 		
-		naverWebtoonService.EpisodeRegister(episodeObj);
+		//naverWebtoonService.EpisodeRegister(episodeObj);
 		
 		return "redirect:/webtoon/list?webtoonNum="+episodeObj.get("webtoonNumObj");
 	}

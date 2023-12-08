@@ -31,7 +31,6 @@ public class naverMypageMapperTest {
 	NaverMypageMapper mapper;
 	
 
-	ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Test
 	public void testWeXbtoonInsert() {
