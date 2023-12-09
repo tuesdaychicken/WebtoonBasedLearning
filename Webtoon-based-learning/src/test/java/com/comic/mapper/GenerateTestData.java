@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.comic.domain.NaverWebtoonVO;
 import com.comic.domain.WebtoonEpisodeVO;
 
 import lombok.extern.log4j.Log4j;
@@ -17,8 +18,8 @@ import lombok.extern.log4j.Log4j;
 public class GenerateTestData {
 
 	@Autowired
-	NaverWebtoonMapper mapper;
-	
+	NaverWebtoonMapper nwMapper;
+	NaverMypageMapper nmMapper;
 	
 	@Test
 	public void EpisodeDataTest() {
@@ -30,7 +31,21 @@ public class GenerateTestData {
 			evo.setEpisodeCover("에피소드 커버"+i);
 			evo.setWebtoonNum(i);
 			log.info(evo);
-			mapper.episodeInsert(evo);
+			nwMapper.episodeInsert(evo);
+		}
+	}
+	
+	@Test
+	public void WebtoonDataTest() {
+		NaverWebtoonVO wvo = new NaverWebtoonVO();
+		
+		for(int i = 1; i <11; i++) {
+			wvo.setWebtoonTitle("웹툰 테스트"+i);
+			wvo.setWebtoonAge("웹툰 에이지"+i);
+			wvo.setWebtoonInfo("웹툰 설명"+i);
+			wvo.setWebtoonCover("웹툰 표지"+i);
+			
+			nmMapper.webtoonInsert(wvo);
 		}
 	}
 }

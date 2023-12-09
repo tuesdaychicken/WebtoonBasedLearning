@@ -50,7 +50,6 @@ public class naverMypageMapperTest {
 		vo.setWebtoonAge("5");
 		vo.setWebtoonInfo("문어 난 문어");
 		vo.setWebtoonCover("sad");
-		vo.setWebtoonIntrdCover("sd");
 		
 		log.info(vo);
 		//맵으로 변환 헤쉬맵으로

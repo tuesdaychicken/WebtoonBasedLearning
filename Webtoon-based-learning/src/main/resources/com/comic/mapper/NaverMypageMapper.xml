@@ -10,9 +10,9 @@
 
 	<insert id="webtoonInsert" parameterType="com.comic.domain.NaverWebtoonVO">
 		INSERT INTO NAVER_WEBTOON
-		(webtoon_NUM, webtoon_TITLE, webtoon_AGE, webtoon_INFO, webtoon_COVER, webtoon_INTRD_COVER)
+		(webtoon_NUM, webtoon_TITLE, webtoon_AGE, webtoon_INFO, webtoon_COVER)
 		VALUES
-		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo}, #{webtoonCover}, #{webtoonIntrdCover})
+		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo}, #{webtoonCover})
 	</insert>
 
 	<insert id="webtoonWeekInsert" parameterType="java.util.HashMap">
