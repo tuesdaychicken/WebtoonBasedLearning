@@ -19,33 +19,55 @@ public class GenerateTestData {
 
 	@Autowired
 	NaverWebtoonMapper nwMapper;
+	
+	@Autowired
 	NaverMypageMapper nmMapper;
 	
+	//에피소트 테스트 데이터 생성
 	@Test
 	public void EpisodeDataTest() {
 		WebtoonEpisodeVO evo = new WebtoonEpisodeVO();
 		
 		for(int i = 1; i < 11; i++ ) {
-			evo.setEpisodeTitle("에피소드 테스트"+i);
-			evo.setEpisodeText("에피소드 내용"+i);
-			evo.setEpisodeCover("에피소드 커버"+i);
+			evo.setEpisodeTitle("에피소드 테스트 "+i);
+			evo.setEpisodeText("에피소드 내용 "+i);
+			evo.setEpisodeCover("에피소드 커버 "+i);
 			evo.setWebtoonNum(i);
 			log.info(evo);
-			nwMapper.episodeInsert(evo);
+			nwMapper.episodeInsert(evo); 
 		}
 	}
 	
+	//웹툰 테스트 데이터 생성
 	@Test
 	public void WebtoonDataTest() {
-		NaverWebtoonVO wvo = new NaverWebtoonVO();
+		NaverWebtoonVO nwVo = new NaverWebtoonVO();
 		
 		for(int i = 1; i <11; i++) {
-			wvo.setWebtoonTitle("웹툰 테스트"+i);
-			wvo.setWebtoonAge("웹툰 에이지"+i);
-			wvo.setWebtoonInfo("웹툰 설명"+i);
-			wvo.setWebtoonCover("웹툰 표지"+i);
 			
-			nmMapper.webtoonInsert(wvo);
+			nwVo.setWebtoonTitle("웹툰 테스트 "+i);
+			nwVo.setWebtoonAge("성인"+i);
+			nwVo.setWebtoonInfo("웹툰 설명 "+i);
+			nwVo.setWebtoonCover("웹툰 표지 "+i);
+			log.info(nwVo);
+			nmMapper.webtoonInsert(nwVo);
+			
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("              웹툰 인서트는 성공");
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			
+			if(i>7) {
+				nwVo.setWeekNum((int)(Math.random()+7)+1);
+				nmMapper.webtoonWeekInsert(nwVo);
+			}else{
+				nwVo.setWeekNum(i);
+				nmMapper.webtoonWeekInsert(nwVo);
+			};
+			
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			System.out.println("              요일 인서트는 성공");
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			
 		}
 	}
 }

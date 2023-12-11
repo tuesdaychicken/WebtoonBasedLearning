@@ -47,9 +47,10 @@ public class NaverMypageController {
 	 *@return 등록 후 마이페이지로 이동
 	 */
 	@PostMapping("/registration")
-	public String webtoonNewInsert(@RequestParam Map<String, String> webtoonObj) {
+	public String webtoonNewInsert(@RequestParam NaverWebtoonVO naverWebtoonVO) {
 		
-		naverMypageService.WebtoonRegister(webtoonObj);
+		naverMypageService.WebtoonRegister(naverWebtoonVO);
+		//여기서 넣은 웹툰의 이름을 
 		return "redirect:/mypage/myActivity";
 	}
 	

@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.comic.domain.NaverWebtoonVO;
 import com.comic.mapper.NaverMypageMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -30,11 +31,11 @@ public class NaverMypageServiceImpl implements NaverMypageService {
 	}
 	
 	@Override
-	public boolean WebtoonRegister(Map<String, String> webtoonObj) {
+	public boolean WebtoonRegister(NaverWebtoonVO naverWebtoonVO) {
 		// TODO Auto-generated method stub
-		log.info("WebtoonRegister"+webtoonObj.toString());
-		return /*(naverMypageMapper.webtoonWeekInsert(webtoonObj) == 1 ? true:false) 
-				&& */(naverMypageMapper.webtoonGenreInsert(webtoonObj) == 1 ? true:false );
+		log.info("WebtoonRegister"+naverWebtoonVO.toString());
+		return (naverMypageMapper.webtoonWeekInsert(naverWebtoonVO) == 1 ? true:false) 
+				/*&& (naverMypageMapper.webtoonGenreInsert(webtoonObj) == 1 ? true:false )*/;
 	}
 
 	@Override

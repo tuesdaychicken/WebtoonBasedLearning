@@ -47,11 +47,14 @@ public class NaverWebtoonVO {
 	private int webtoonGpa;
 	private int webtoonLike;
 	private String webtoonCover;
-//	private String webtoonIntrdCover; 
-//	이 부분은 웹툰 추천 혹은 신작에 나오는 표지 부분인데 어떻게 하면 괜찮을지 고민하고 추가하자
-	
+
 	//다른 테이블 연결?
-	private String weekDay;
+	private int weekNum;
+//	private String genreType;
+
+//	이 부분은 웹툰 추천 혹은 신작에 나오는 표지 부분인데
+//	어떻게 하면 괜찮을지 고민하고 추가하자
+//	private String webtoonIntrdCover; 
 	
-	//private String genreType;
+	
 }

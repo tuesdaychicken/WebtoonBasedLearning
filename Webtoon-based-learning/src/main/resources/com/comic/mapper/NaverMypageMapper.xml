@@ -5,23 +5,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.comic.mapper.NaverMypageMapper">
-
-	
-
+	<!-- 웹툰 생성 -->
 	<insert id="webtoonInsert" parameterType="com.comic.domain.NaverWebtoonVO">
 		INSERT INTO NAVER_WEBTOON
-		(webtoon_NUM, webtoon_TITLE, webtoon_AGE, webtoon_INFO, webtoon_COVER)
+		(WEBTOON_NUM, WEBTOON_TITLE, WEBTOON_AGE, WEBTOON_INFO, WEBTOON_COVER)
 		VALUES
 		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo}, #{webtoonCover})
 	</insert>
 
-	<insert id="webtoonWeekInsert" parameterType="java.util.HashMap">
-		INSERT INTO WEBTOON_WEEK 
-    	VALUES 
-    	(#{week_DAY}, #{webtoon_TITLE}, 
-    	(SELECT webtoon_NUM FROM NAVER_WEBTOON WHERE webtoon_TITLE = #{webtoon_TITLE} AND webtoon_INFO = #{webtoon_INFO}))
+	<!-- 웹툰 요일 생성 -->
+	<insert id="webtoonWeekInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+		INSERT INTO WEBTOON_WEEK
+		(WEBTOON_WEEK_NUM, WEBTOON_NUM, WEEK_NUM)
+		SELECT W_W_SEQ.NEXTVAL AS WEBTOON_WEEK_NUM, WEBTOON_NUM, #{weekNum} AS WEEK_NUM
+		FROM NAVER_WEBTOON
+		WHERE WEBTOON_TITLE = #{webtoonTitle} AND WEBTOON_INFO = #{webtoonInfo}
 	</insert>
 
+	<!-- 웹툰 장르 생성 -->
 	<insert id="webtoonGenreInsert" parameterType="com.comic.domain.NaverWebtoonVO">
 		INSERT INTO WEBTOON_GENRE
 		VALUES
@@ -29,22 +30,26 @@
 		(SELECT webtoon_NUM FROM NAVER_WEBTOON WHERE webtoon_TITLE = #{webtoon_TITLE} AND webtoon_INFO = #{webtoon_INFO}))
 	</insert>
 	
+	<!-- 웹툰 데이터 변경 -->
 	<update id="webtoonUpdate" parameterType="java.util.HashMap">
 		UPDATE NAVER_WEBTOON
 		SET webtoon_TITLE = #{webtoon_TITLE}, webtoon_AGE = #{webtoon_AGE}, webtoon_INFO = #{webtoon_INFO}, webtoon_COVER = #{webtoon_COVER}, webtoon_INTRD_COVER = #{webtoon_INTRD_COVER}
 		WHERE webtoon_NUM = #{webtoon_NUM}
 	</update>
 	
+	<!-- 웹툰 데이터 삭제 -->
 	<delete id="webtoonDelete">
 		DELETE FROM NAVER_WEBTOON
 		WHERE webtoon_NUM = #{webtoon_NUM}
 	</delete>
 	
+	<!-- 삭제하는 웹툰 요일 정보 삭제 -->
 	<delete id="webtoonWeekDelete">
 		DELETE FROM WEBTOON_WEEK
 		WHERE webtoon_NUM = #{webtoon_NUM}
 	</delete>
 	
+	<!-- 삭제하는 웹툰 장르 정보 삭제 -->
 	<delete id="webtoonGenreDelete">
 		DELETE FROM WEBTOON_GENRE
 		WHERE webtoon_NUM = #{webtoon_NUM}

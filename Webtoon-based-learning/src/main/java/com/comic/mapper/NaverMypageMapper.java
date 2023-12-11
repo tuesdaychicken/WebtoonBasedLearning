@@ -10,8 +10,8 @@ import com.comic.domain.NaverWebtoonVO;
 public interface NaverMypageMapper {
 	
 	public int webtoonInsert(NaverWebtoonVO naverWebtoonVO);
-	public int webtoonWeekInsert(Map<String, String> webtoonWeekVO);
-	public int webtoonGenreInsert(Map<String, String> webtoonGenreVO);
+	public int webtoonWeekInsert(NaverWebtoonVO naverWebtoonVO);
+	public int webtoonGenreInsert(NaverWebtoonVO naverWebtoonVO);
 	
 	public Map<String, String> webtoonSelect(Map<String, Integer> webtoonKey);
 	

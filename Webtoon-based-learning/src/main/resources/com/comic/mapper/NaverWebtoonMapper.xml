@@ -14,17 +14,12 @@
   <result column="WEBTOON_GPA" property="webtoonGpa"/>
   <result column="WEBTOON_LIKE" property="webtoonLike"/>
   <result column="WEBTOON_COVER" property="webtoonCover"/>
-  <result column="WEBTOON_INTRD_COVER" property="webtoonIntrdCover"/>
   <result column="WEEK_DAY" property="weekDay"/>
-  
 </resultMap>
 
 	<select id="weekSelect"	resultMap="naverWebtoonVO">
 		SELECT
-			NW.WEBTOON_NUM
-			, NW.WEBTOON_TITLE
-			, NW.WEBTOON_COVER
-			, W.WEEK_DAY
+			NW.WEBTOON_NUM, NW.WEBTOON_TITLE, NW.WEBTOON_COVER, W.WEEK_DAY
 		FROM
 			NAVER_WEBTOON NW LEFT JOIN WEBTOON_WEEK WW
 			ON NW.WEBTOON_NUM = WW.WEBTOON_NUM
