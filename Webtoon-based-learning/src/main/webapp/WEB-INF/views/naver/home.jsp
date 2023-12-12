@@ -21,34 +21,34 @@
                 <ul class="ul">
                     <li class="spot">
                         <div class="spot_img" style="background-color: blue;"> <img class="spot_img" src="resources/img/img2.JPG"> </div>
-                        <p class="title">성희와 예찬</p>
-                        <p class="writer">박태준만화회사</p>
-                        <p class="line_limit info">껄렁한 겉모습으로 인해 음험한 소문을 몰고 다니는 시골 토박이 전학생 이예찬은 첫눈에 반한 전교 1등  폭격이 시작된다!</p>
+                        <p class="title">TEST 1</p>
+                        <p class="writer">TEST 1</p>
+                        <p class="line_limit info">TEST 1</p>
                     </li>
 
                     <li class="spot">
                         <div class="spot_img" style="background-color: aqua;"> <img class="spot_img" src="resources/img/img3.JPG"> </div>
-                        <p class="title">원조찐따 이예찬</p>
-                        <p class="writer">이말년/주호민</p>
-                        <p class="line_limit info">힘없고 가진거 하나 없이 맞고만 살던 이예찬 이였는데... 우연히 비밀의 뉴튜브를 발견하게 되고 갑자기 떼돈을 벌었다.</p>
+                        <p class="title">TEST 2</p>
+                        <p class="writer">TEST 2</p>
+                        <p class="line_limit info">TEST 2</p>
                     </li>
 
                     <li class="spot">
                         <div class="spot_img" style="background-color: coral;"> <img class="spot_img" src="resources/img/img1.JPG"> </div>
-                        <p class="title">나는 존나쎄다 : 임채리의 등장</p>
-                        <p class="writer">기안84</p>
-                        <p class="line_limit info">무쇠팔, 무쇠다리, 로켓트 주먹. 목숨이 아깝거든~ 모두모두 비켜라!!!! </p>
+                        <p class="title">TEST 3</p>
+                        <p class="writer">TEST 3</p>
+                        <p class="line_limit info">TEST 3</p>
                     </li>
                 </ul>
             </div>
 
             <div class="spot_right">
-                <a href="https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime"> <img src="resources/img/ad.png" class="ad_img"></a>
+                <a href=""> <img src="resources/img/ad.png" class="ad_img"></a><!-- https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime -->
             </div>
         </div>
 
         <div class="middle_banner">
-            <a href="https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime"><img src="resources/img/ad2.jpg"></a>
+            <a href=""><img src="resources/img/ad2.jpg"></a><!-- https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime -->
         </div>
 
         <div>
