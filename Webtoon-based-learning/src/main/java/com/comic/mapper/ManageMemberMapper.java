@@ -7,7 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import com.comic.domain.NaverMemberVO;
 
 @Mapper
-public interface NaverMemberMapper {
+public interface ManageMemberMapper {
 	
 	public int memberInsert(NaverMemberVO member);
 	

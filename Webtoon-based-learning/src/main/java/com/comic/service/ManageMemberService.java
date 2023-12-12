@@ -4,7 +4,7 @@ package com.comic.service;
 import com.comic.domain.NaverMemberVO;
 
 
-public interface NaverMemberService {
+public interface ManageMemberService {
 	
 	public int MemberRegister(NaverMemberVO member);
 	

@@ -48,8 +48,11 @@ public class NaverWebtoonVO {
 	private int webtoonLike;
 	private String webtoonCover;
 
+	
 	//다른 테이블 연결?
+	//요일 데이터
 	private int weekNum;
+	private String weekDay;
 //	private String genreType;
 
 //	이 부분은 웹툰 추천 혹은 신작에 나오는 표지 부분인데

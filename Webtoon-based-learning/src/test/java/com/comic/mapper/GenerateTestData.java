@@ -52,22 +52,21 @@ public class GenerateTestData {
 			log.info(nwVo);
 			nmMapper.webtoonInsert(nwVo);
 			
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-			System.out.println("              웹툰 인서트는 성공");
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			log.info("              웹툰 인서트는 성공");
+			log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 			
 			if(i>7) {
-				nwVo.setWeekNum((int)(Math.random()+7)+1);
+				nwVo.setWeekNum((int)(Math.random()*7)+1);
 				nmMapper.webtoonWeekInsert(nwVo);
+				
 			}else{
 				nwVo.setWeekNum(i);
 				nmMapper.webtoonWeekInsert(nwVo);
 			};
-			
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-			System.out.println("              요일 인서트는 성공");
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-			
+			log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			log.info("              요일 인서트는 성공");
+			log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		}
 	}
 }

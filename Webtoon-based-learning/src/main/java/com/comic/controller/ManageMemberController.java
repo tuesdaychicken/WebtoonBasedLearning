@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.comic.domain.NaverMemberVO;
-import com.comic.service.NaverMemberService;
+import com.comic.service.ManageMemberService;
 
 
 /**
@@ -18,14 +18,14 @@ import com.comic.service.NaverMemberService;
  */
 @Controller
 @RequestMapping(value="/member")
-public class NaverMemberController {
+public class ManageMemberController {
 	
 	@Autowired
-	private final NaverMemberService naverMemberService;
+	private final ManageMemberService manageMemberService;
 	
-	public NaverMemberController(NaverMemberService naverMemberService) {
+	public ManageMemberController(ManageMemberService manageMemberService) {
 		// TODO Auto-generated constructor stub
-		this.naverMemberService = naverMemberService;
+		this.manageMemberService = manageMemberService;
 	}
 
 	/** 
@@ -46,7 +46,7 @@ public class NaverMemberController {
 	@PostMapping("/join")
 	public String naverSignUp(NaverMemberVO naverMemberVO) {
 		System.out.println(naverMemberVO.toString());
-		naverMemberService.MemberRegister(naverMemberVO);
+		manageMemberService.MemberRegister(naverMemberVO);
 		
 		return "redirect:/naver/";
 	}
@@ -68,7 +68,7 @@ public class NaverMemberController {
 	 */
 	@PostMapping("/login")
 	public String naverSignIn(NaverMemberVO naverMemberVO) {
-		naverMemberService.MemberLogin(naverMemberVO);
+		manageMemberService.MemberLogin(naverMemberVO);
 		return "redirect:/naver/";
 	}
 	
