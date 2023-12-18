@@ -5,8 +5,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.comic.mapper.NaverMypageMapper">
+
+<parameterMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO" />
+
 	<!-- 웹툰 생성 -->
-	<insert id="webtoonInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+	<insert id="webtoonInsert" parameterMap="naverWebtoonVO">
 		INSERT INTO NAVER_WEBTOON
 		(WEBTOON_NUM, WEBTOON_TITLE, WEBTOON_AGE, WEBTOON_INFO, WEBTOON_COVER)
 		VALUES
@@ -14,7 +17,7 @@
 	</insert>
 
 	<!-- 웹툰 요일 생성 -->
-	<insert id="webtoonWeekInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+	<insert id="webtoonWeekInsert" parameterMap="naverWebtoonVO">
 		INSERT INTO WEBTOON_WEEK
 		(WEBTOON_WEEK_NUM, WEBTOON_NUM, WEEK_NUM)
 		SELECT W_W_SEQ.NEXTVAL AS WEBTOON_WEEK_NUM, WEBTOON_NUM, #{weekNum} AS WEEK_NUM

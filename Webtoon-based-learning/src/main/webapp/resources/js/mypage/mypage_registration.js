@@ -3,7 +3,7 @@
  * mypage_registration.jsp 에서 post로 동작 후
  */
 
-var webtoonVO = {
+var naverWebtoonVO = {
 	webtoonTitle: "webtoonTitle",
 		webtoonAge: "webtoonAge",
 		weekDay: "weekDay",
@@ -12,12 +12,12 @@ var webtoonVO = {
 		webtoonIntrdCorver: "webtoonIntrdCorver"
 }
 
-console.log(webtoonVO)
+console.log(naverWebtoonVO)
 
 fetch('/mypage/registration', {
 	method: "POST",
 	
-	body: JSON.stringify(webtoonVO)
+	body: JSON.stringify(naverWebtoonVO)
 })
 	.then((response) => response.json())
 	.then((data) => console.log(data))

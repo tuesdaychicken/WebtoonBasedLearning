@@ -6,6 +6,7 @@
 
 <mapper namespace="com.comic.mapper.NaverWebtoonMapper">
 
+<!-- Mapper VO -->
 <resultMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO">
   <result column="WEBTOON_NUM" property="webtoonNum"/>
   <result column="WEBTOON_TITLE" property="webtoonTitle"/>
@@ -15,8 +16,10 @@
   <result column="WEBTOON_LIKE" property="webtoonLike"/>
   <result column="WEBTOON_COVER" property="webtoonCover"/>
   <result column="WEEK_DAY" property="weekDay"/>
+  <result column="WEEK_NUM" property="weekNum"/>
 </resultMap>
 
+	<!-- 웹툰 요일별 검색 -->
 	<select id="weekSelect"	resultMap="naverWebtoonVO">
 		SELECT
 			NW.WEBTOON_NUM, NW.WEBTOON_TITLE, NW.WEBTOON_COVER, W.WEEK_DAY
@@ -27,12 +30,14 @@
 				ON WW.WEEK_NUM = W.WEEK_NUM
 	</select>
 	
+	<!-- 해당 웹툰 검색 -->
 	<select id="webtoonSelect" resultMap="naverWebtoonVO">
 		SELECT * 
 		FROM NAVER_WEBTOON 
 		WHERE WEBTOON_NUM = #{webtoonNum}  
 	</select>
 	
+	<!-- 에피소드 생성 -->
 	<insert id="episodeInsert" parameterType="com.comic.domain.WebtoonEpisodeVO">
 	INSERT INTO WEBTOON_EPISODE 
 	(EPISODE_NUM, EPISODE_TITLE, EPISODE_TEXT, EPISODE_COVER, WEBTOON_NUM) 
@@ -40,12 +45,14 @@
 	(W_E_SEQ.NEXTVAL, #{episodeTitle}, #{episodeText}, #{episodeCover}, #{webtoonNum})
 	</insert>
 	
+	<!-- 에피소드 검색 -->
 	<select id="episodeSelect" resultMap="naverWebtoonVO">
 		SELECT * 
 		FROM WEBTOON_EPISODE 
 		WHERE WEBTOON_NUM = #{webtoonNum}
 	</select>
-	
+
+	<!-- 에피소드 내용 검색 -->	
 	<select id="episodeDetailSelect" resultType="java.util.HashMap">
 		SELECT * 
 		FROM WEBTOON_EPISODE 
@@ -55,12 +62,14 @@
 			episode_NUM = #{episode_NUM}
 	</select>
 	
+	<!-- 에피소드 내용 변경 -->
 	<update id="episodeUpdate" parameterType="java.util.HashMap">
 		UPDATE WEBTOON_EPISODE 
 		SET episode_TITLE = #{episode_TITLE}, episode_TEXT = #{episode_TEXT}, episode_COVER = #{episode_COVER}, episodeCONTENT = #{episodeContent}
 		WHERE episode_NUM = #{episode_NUM} AND webtoon_NUM = #{webtoon_NUM}
 	</update>
 	
+	<!-- 에피소드 이부분 고민할것 -->
 	<delete id="episodeDelete" parameterType="java.util.HashMap">
 		DELETE FROM WEBTOON_EPISODE
 		WHERE episode_NUM = #{episode_NUM} AND webtoon_NUM = #{webtoon_NUM} 

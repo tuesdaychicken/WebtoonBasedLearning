@@ -10,9 +10,9 @@
 <body>
 <%@ include file="/WEB-INF/views/includes/header.jsp" %>
 
-    <div class="webtoon">
 
-        <div class="webtoon_spot">
+    <div class="webtoon">
+         <div class="webtoon_spot">
             <div class="spot_left">
                 <div>
                     <h2>이달의 신규 웹툰</h2> 
@@ -43,14 +43,12 @@
             </div>
 
             <div class="spot_right">
-                <a href=""> <img src="resources/img/ad.png" class="ad_img"></a><!-- https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime -->
+                <a href="https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime"> <img src="resources/img/ad.png" class="ad_img"> </a>
             </div>
         </div>
-
-        <div class="middle_banner">
-            <a href=""><img src="resources/img/ad2.jpg"></a><!-- https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime -->
-        </div>
-
+          <div class="middle_banner">
+            <a href="https://vibe.naver.com/album/9176758?utm_source=webtoon&utm_medium=bfexp&utm_campaign=peaktime"> <img src="resources/img/ad2.jpg"> </a>
+        </div> 
         <div>
             <div class="view_type">
                 <p class="view_font">요일별 전체 웹툰</p>
@@ -70,7 +68,7 @@
                         <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '월요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="resources/img/naver.JPG" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="resources/img/naver.JPG" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoonTitle">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -84,7 +82,7 @@
                         <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '화요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoonTitle">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -98,7 +96,7 @@
                        <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '수요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoonTitle">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -112,7 +110,7 @@
                         <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '목요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoon_TITLE">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -126,7 +124,7 @@
                         <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '금요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoon_TITLE">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -140,7 +138,7 @@
                        <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '토요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoonTitle">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
@@ -154,7 +152,7 @@
                        <c:forEach var="comic" items="${webtoon}">
 							<c:if test="${comic.weekDay eq '일요일'}"> 
                             <li class="col_li">
-                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"><img src="" alt="" class="poster_img"></a>
+                                <a href="webtoon/list?webtoonNum=${comic.webtoonNum}"> <img src="" alt="" class="poster_img"> </a>
                                 <div class="col_font"><a href="webtoon/list?webtoonNum=${comic.webtoonNum}" class="webtoon_TITLE">${comic.webtoonTitle}</a></div>
                             </li>
 							</c:if>
