@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.comic.domain.NaverWebtoonVO;
 
 @Mapper
-public interface NaverMypageMapper {
+public interface ContentRegisterMapper {
 	
 	public int webtoonInsert(NaverWebtoonVO naverWebtoonVO);
 	public int webtoonWeekInsert(NaverWebtoonVO naverWebtoonVO);

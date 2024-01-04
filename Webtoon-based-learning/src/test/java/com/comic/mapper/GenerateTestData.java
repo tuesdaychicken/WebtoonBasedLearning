@@ -21,7 +21,7 @@ public class GenerateTestData {
 	WebtoonContentMapper nwMapper;
 	
 	@Autowired
-	NaverMypageMapper nmMapper;
+	ContentRegisterMapper nmMapper;
 	
 	//에피소트 테스트 데이터 생성
 	@Test

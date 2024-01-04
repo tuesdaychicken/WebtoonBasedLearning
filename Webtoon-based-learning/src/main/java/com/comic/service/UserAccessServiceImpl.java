@@ -12,10 +12,10 @@ public class UserAccessServiceImpl implements UserAccessService {
 	
 	
 	@Autowired
-	private final UserAccessMapper naverMemberMapper;
+	private final UserAccessMapper userAccessMapper;
 	
-	public UserAccessServiceImpl(UserAccessMapper naverMemberMapper) {
-		this.naverMemberMapper = naverMemberMapper;
+	public UserAccessServiceImpl(UserAccessMapper userAccessMapper) {
+		this.userAccessMapper = userAccessMapper;
 	}
 
 	
@@ -23,13 +23,13 @@ public class UserAccessServiceImpl implements UserAccessService {
 	@Override
 	public int MemberRegister(NaverMemberVO member) {
 		// TODO Auto-generated method stub
-		return naverMemberMapper.memberInsert(member)==1 ? 1 : 0;
+		return userAccessMapper.memberInsert(member)==1 ? 1 : 0;
 	}
 
 	@Override
 	public NaverMemberVO MemberLogin(NaverMemberVO userName) {
 		// TODO Auto-generated method stub
-		return naverMemberMapper.memberSelect(userName);
+		return userAccessMapper.memberSelect(userName);
 	}
 
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.comic.domain.NaverWebtoonVO;
-import com.comic.service.NaverMypageService;
+import com.comic.service.ContentRegisterService;
 
 /**
  *@brief 마이페이지 기능 관련 Controller
@@ -22,12 +22,12 @@ import com.comic.service.NaverMypageService;
  */
 @Controller
 @RequestMapping(value="/mypage")
-public class NaverMypageController {
-
-	@Autowired
-	private final NaverMypageService naverMypageService;
+public class ContentRegisterController {
 	
-	public NaverMypageController(NaverMypageService naverMypageService) {
+	@Autowired
+	private final ContentRegisterService naverMypageService;
+	
+	public ContentRegisterController(ContentRegisterService naverMypageService) {
 		// TODO Auto-generated constructor stub
 		this.naverMypageService = naverMypageService;
 	}

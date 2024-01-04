@@ -28,7 +28,7 @@ public class MapperTest {
 	
 	//NaverMypageMapper mapper = ac.getBean("naverMypageMapper", NaverMypageMapper.class);
 	@Autowired
-	NaverMypageMapper mapper;
+	ContentRegisterMapper mapper;
 	
 
 	

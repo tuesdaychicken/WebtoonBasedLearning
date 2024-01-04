@@ -6,7 +6,7 @@ import com.comic.domain.NaverWebtoonVO;
 
 
 
-public interface NaverMypageService {
+public interface ContentRegisterService {
 	
 	public boolean WebtoonRegister(NaverWebtoonVO naverWebtoonVO);
 	
