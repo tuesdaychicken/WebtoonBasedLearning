@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 
 import com.comic.domain.NaverWebtoonVO;
 import com.comic.domain.WebtoonEpisodeVO;
-import com.comic.mapper.NaverWebtoonMapper;
+import com.comic.mapper.WebtoonContentMapper;
 
 @Service("NaverWebtoonService")
-public class NaverWebtoonServiceImpl implements NaverWebtoonService {
+public class WebtoonContentServiceImpl implements WebtoonContentService {
 
 	@Autowired
-	private final NaverWebtoonMapper naverWebtoonMapper;
+	private final WebtoonContentMapper naverWebtoonMapper;
 	
-	public NaverWebtoonServiceImpl(NaverWebtoonMapper naverWebtoonMapper) {
+	public WebtoonContentServiceImpl(WebtoonContentMapper naverWebtoonMapper) {
 		// TODO Auto-generated constructor stub
 		this.naverWebtoonMapper = naverWebtoonMapper;
 	}

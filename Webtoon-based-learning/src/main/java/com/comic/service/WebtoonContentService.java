@@ -9,7 +9,7 @@ import com.comic.domain.NaverWebtoonVO;
 import com.comic.domain.WebtoonEpisodeVO;
 
 
-public interface NaverWebtoonService {
+public interface WebtoonContentService {
 	
 	public List<NaverWebtoonVO> webtoonWeekDay();
 	

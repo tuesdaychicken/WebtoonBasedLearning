@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.comic.domain.NaverMemberVO;
-import com.comic.mapper.ManageMemberMapper;
+import com.comic.mapper.UserAccessMapper;
 
 @Service("NaverMemberService")
-public class ManageMemberServiceImpl implements ManageMemberService {
+public class UserAccessServiceImpl implements UserAccessService {
 	
 	
 	
 	@Autowired
-	private final ManageMemberMapper naverMemberMapper;
+	private final UserAccessMapper naverMemberMapper;
 	
-	public ManageMemberServiceImpl(ManageMemberMapper naverMemberMapper) {
+	public UserAccessServiceImpl(UserAccessMapper naverMemberMapper) {
 		this.naverMemberMapper = naverMemberMapper;
 	}
 

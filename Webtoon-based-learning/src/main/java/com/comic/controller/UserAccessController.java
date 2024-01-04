@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.comic.domain.NaverMemberVO;
-import com.comic.service.ManageMemberService;
+import com.comic.service.UserAccessService;
 
 
 /**
@@ -18,12 +18,12 @@ import com.comic.service.ManageMemberService;
  */
 @Controller
 @RequestMapping(value="/member")
-public class ManageMemberController {
+public class UserAccessController {
 	
 	@Autowired
-	private final ManageMemberService manageMemberService;
+	private final UserAccessService manageMemberService;
 	
-	public ManageMemberController(ManageMemberService manageMemberService) {
+	public UserAccessController(UserAccessService manageMemberService) {
 		// TODO Auto-generated constructor stub
 		this.manageMemberService = manageMemberService;
 	}

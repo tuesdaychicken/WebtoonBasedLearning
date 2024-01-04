@@ -11,7 +11,7 @@ import com.comic.domain.NaverWebtoonVO;
 import com.comic.domain.WebtoonEpisodeVO;
 
 @Mapper
-public interface NaverWebtoonMapper {
+public interface WebtoonContentMapper {
 	
 	public List<NaverWebtoonVO> weekSelect();
 	

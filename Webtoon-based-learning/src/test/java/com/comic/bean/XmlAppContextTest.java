@@ -12,8 +12,8 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.comic.service.NaverWebtoonService;
-import com.comic.service.NaverWebtoonServiceImpl;
+import com.comic.service.WebtoonContentService;
+import com.comic.service.WebtoonContentServiceImpl;
 
 import lombok.Setter;
 
@@ -30,8 +30,8 @@ public class XmlAppContextTest {
 	@Test
 	public void beanTest() {
 		
-		NaverWebtoonService service = ac.getBean("naverWebtoonService",NaverWebtoonService.class);
-		assertThat(service).isInstanceOf(NaverWebtoonServiceImpl.class);
+		WebtoonContentService service = ac.getBean("naverWebtoonService",WebtoonContentService.class);
+		assertThat(service).isInstanceOf(WebtoonContentServiceImpl.class);
 	}
 	
 	@Test

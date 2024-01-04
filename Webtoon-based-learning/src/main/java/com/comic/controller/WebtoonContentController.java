@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comic.domain.NaverWebtoonVO;
-import com.comic.service.NaverWebtoonService;
+import com.comic.service.WebtoonContentService;
 
 /**
  *@brief 에피소드 기능 관련 Controller
@@ -20,16 +20,16 @@ import com.comic.service.NaverWebtoonService;
  */
 @Controller
 @RequestMapping("/webtoon/*")
-public class NaverWebtoonController {
+public class WebtoonContentController {
 
 	@Autowired
-	private final NaverWebtoonService naverWebtoonService;
+	private final WebtoonContentService naverWebtoonService;
 	
 	/** 
 	 *@brief 생성자 주입
 	 *@param 사용할 메소드가 모여 있는 인터페이스 네이버 웹툰 서비스
 	 */
-	public NaverWebtoonController(NaverWebtoonService naverWebtoonService) {
+	public WebtoonContentController(WebtoonContentService naverWebtoonService) {
 		// TODO Auto-generated constructor stub
 		this.naverWebtoonService = naverWebtoonService;
 	}

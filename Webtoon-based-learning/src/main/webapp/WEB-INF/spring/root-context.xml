@@ -43,8 +43,8 @@
 	
 	<tx:annotation-driven/>
 	
-	<bean id="manageMemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.comic.mapper.ManageMemberMapper"/>
+	<bean id="userAccessMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.comic.mapper.UserAccessMapper"/>
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
@@ -53,21 +53,21 @@
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
-	<bean id="naverWebtoonMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.comic.mapper.NaverWebtoonMapper"/>
+	<bean id="webtoonContentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.comic.mapper.WebtoonContentMapper"/>
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
-	<bean id="manageMemberService" class="com.comic.service.ManageMemberServiceImpl">
-		<constructor-arg ref="manageMemberMapper"/>
+	<bean id="userAccessService" class="com.comic.service.UserAccessServiceImpl">
+		<constructor-arg ref="userAccessMapper"/>
 	</bean>	
 	
 	<bean id="naverMypageService" class="com.comic.service.NaverMypageServiceImpl">
 		<constructor-arg ref="naverMypageMapper"/>
 	</bean>
 	
-	<bean id="naverWebtoonService" class="com.comic.service.NaverWebtoonServiceImpl">
-		<constructor-arg ref="naverWebtoonMapper"/>
+	<bean id="webtoonContentService" class="com.comic.service.WebtoonContentServiceImpl">
+		<constructor-arg ref="webtoonContentMapper"/>
 	</bean>
 	<context:component-scan base-package="com.comic.service"></context:component-scan>
 	

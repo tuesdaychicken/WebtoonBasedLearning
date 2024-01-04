@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.comic.service.NaverWebtoonService;
+import com.comic.service.WebtoonContentService;
 
 /**
  *@brief 간략설명
@@ -15,12 +15,12 @@ import com.comic.service.NaverWebtoonService;
  */
 @Controller
 @RequestMapping(value="/")
-public class NaverHomeController {
+public class HomeController {
 
 	@Autowired
-	private final NaverWebtoonService naverWebtoonService;
+	private final WebtoonContentService naverWebtoonService;
 	
-	public NaverHomeController(NaverWebtoonService naverWebtoonService) {
+	public HomeController(WebtoonContentService naverWebtoonService) {
 		// TODO Auto-generated constructor stub
 		this.naverWebtoonService = naverWebtoonService;
 	}
