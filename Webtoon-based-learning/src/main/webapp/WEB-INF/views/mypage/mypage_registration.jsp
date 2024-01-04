@@ -13,7 +13,6 @@
 	<br>
 	<br>
 
-<form action="/mypage/registration" method="post" class="webtoonForm">
 
 	<span>작품 제목</span>
 	<input type="text" id="webtoonTitle">
@@ -76,10 +75,8 @@
 	<br> 
 	
 	<div>
-		<input type="button" value="웹툰 올리기" class="request" onclick="location.href='/mypage/myActivity'">
+		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기" class="request" onclick="location.href='/mypage/myActivity'">
 	</div>
-
-</form>
 
 </body>
 

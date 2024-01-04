@@ -20,21 +20,21 @@
 
                 <ul class="ul">
                     <li class="spot">
-                        <div class="spot_img" style="background-color: blue;"> <img class="spot_img" src="resources/img/img2.JPG"> </div>
+                        <div class="spot_img" style="background-color: blue;"> <img class="spot_img" src="/resources/img/img2.JPG"> </div>
                         <p class="title">TEST 1</p>
                         <p class="writer">TEST 1</p>
                         <p class="line_limit info">TEST 1</p>
                     </li>
 
                     <li class="spot">
-                        <div class="spot_img" style="background-color: aqua;"> <img class="spot_img" src="resources/img/img3.JPG"> </div>
+                        <div class="spot_img" style="background-color: aqua;"> <img class="spot_img" src="/resources/img/img3.JPG" alt=""> </div>
                         <p class="title">TEST 2</p>
                         <p class="writer">TEST 2</p>
                         <p class="line_limit info">TEST 2</p>
                     </li>
 
                     <li class="spot">
-                        <div class="spot_img" style="background-color: coral;"> <img class="spot_img" src="resources/img/img1.JPG"> </div>
+                        <div class="spot_img" style="background-color: coral;"> <img class="spot_img" src="/resources/img/img1.JPG"> </div>
                         <p class="title">TEST 3</p>
                         <p class="writer">TEST 3</p>
                         <p class="line_limit info">TEST 3</p>

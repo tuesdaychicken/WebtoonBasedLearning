@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.comic.domain.NaverWebtoonVO;
 import com.comic.service.NaverMypageService;
@@ -30,8 +32,6 @@ public class NaverMypageController {
 		this.naverMypageService = naverMypageService;
 	}
 	
-	NaverWebtoonVO naverWebtoonVO = new NaverWebtoonVO();
-	
 	/** 
 	 *@brief 웹툰을 등록하기 위한 Service 호출
 	 *@return 웹툰 등록 페이지로 이동
@@ -47,7 +47,11 @@ public class NaverMypageController {
 	 *@return 등록 후 마이페이지로 이동
 	 */
 	@PostMapping("/registration")
-	public String webtoonNewInsert(@RequestParam NaverWebtoonVO naverWebtoonVO) {
+	// @ResponseBody -> RestController를 쓰면 생략 가능
+	// @ResponseBOdy -> html 형식으로 리턴해 줄 수 있음 쉽게 얘기하면 정보 찾아보셈
+	public String webtoonNewInsert(@RequestBody NaverWebtoonVO naverWebtoonVO) {
+		System.out.println("[ /mypage/registration webtoonNewInsert ]");
+		System.out.println("VO: " + naverWebtoonVO.toString());
 		
 		naverMypageService.WebtoonRegister(naverWebtoonVO);
 		//여기서 넣은 웹툰의 이름을 

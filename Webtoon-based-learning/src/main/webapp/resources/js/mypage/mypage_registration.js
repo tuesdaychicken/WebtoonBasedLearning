@@ -3,25 +3,39 @@
  * mypage_registration.jsp 에서 post로 동작 후
  */
 
-var naverWebtoonVO = {
-	webtoonTitle: "webtoonTitle",
-		webtoonAge: "webtoonAge",
-		weekDay: "weekDay",
-		webtoonInfo: "webtoonInfo",
-		webtoonCover: "webtoonCover",
-		webtoonIntrdCorver: "webtoonIntrdCorver"
-}
+const uploadBtn = document.querySelector('.webtoon-upload-btn');
 
-console.log(naverWebtoonVO)
-
-fetch('/mypage/registration', {
-	method: "POST",
+uploadBtn.addEventListener('click', () => {
+	console.log('click upload button!');
 	
-	body: JSON.stringify(naverWebtoonVO)
-})
-	.then((response) => response.json())
-	.then((data) => console.log(data))
-	.catch((error) => console.error("에러가 발생했어 = ", error))
+	/*const naverWebtoonVO = {
+		webtoonTitle: 'webtoonTitle',
+		webtoonAge: 'webtoonAge',
+		weekDay: 'weekDay',
+		webtoonInfo: 'webtoonInfo',
+		webtoonCover: 'webtoonCover',
+		webtoonIntrdCorver: 'webtoonIntrdCorver'
+	}*/
+	
+	fetch('/mypage/registration', {
+		method: 'POST',
+		headers: {
+			'Content-Type' : 'application/json;charset=utf-8'
+		},
+		body: JSON.stringify(
+			document.getElementById(webtoonTitle),
+			document.getElementById(webtoonAge),
+			document.getElementById(weekDay),
+			document.getElementById(webtoonInfo),
+			document.getElementById(webtoonCover),
+			document.getElementById(webtoonIntrdCorver))
+	})
+	.then('Success POST')
+	.catch((error) => console.error('에러가 발생했어 = ', error))
+		/*.then((response) => response.json())
+		.then((data) => console.log(data))*/
+		
+});
 
 //.해서 들어가는 방법은 체이닝 기법이라 한다
 //.then은 앞에 url에서 요청이 들어오면 실행
