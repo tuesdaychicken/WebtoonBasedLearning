@@ -13,7 +13,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -34,7 +34,7 @@ public class MapperTest {
 	
 	@Test
 	public void testWeXbtoonInsert() {
-		NaverWebtoonVO vo = new NaverWebtoonVO();
+		WebtoonVO vo = new WebtoonVO();
 		
 		System.out.println("나는@@@@@@@"+mapper);
 		

@@ -6,14 +6,14 @@
   
 <mapper namespace="com.comic.mapper.UserAccessMapper">
 
-	<insert id="memberInsert" parameterType="com.comic.domain.NaverMemberVO">
+	<insert id="memberInsert" parameterType="com.comic.domain.MemberVO">
 		INSERT INTO NAVER_MEMBER
 		(userNUM, user_ID, user_PW, user_NAME, user_GENDER, user_PHONE, user_EMAIL)
 		VALUES
 		(N_M_SEQ.NEXTVAL, #{user_ID}, #{user_PW}, #{user_NAME}, #{user_GENDER}, #{user_PHONE}, #{user_EMAIL})
 	</insert>
 
-	<select id="memberSelect" resultType="com.comic.domain.NaverMemberVO">
+	<select id="memberSelect" resultType="com.comic.domain.MemberVO">
 		SELECT *
 		FROM NAVER_MEMBER
 		WHERE user_ID = #{user_ID}

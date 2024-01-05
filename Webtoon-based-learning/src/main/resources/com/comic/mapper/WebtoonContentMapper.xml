@@ -7,7 +7,7 @@
 <mapper namespace="com.comic.mapper.WebtoonContentMapper">
 
 <!-- Mapper VO -->
-<resultMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO">
+<resultMap id="webtoonVO" type="com.comic.domain.WebtoonVO">
   <result column="WEBTOON_NUM" property="webtoonNum"/>
   <result column="WEBTOON_TITLE" property="webtoonTitle"/>
   <result column="WEBTOON_AGE" property="webtoonAge"/>
@@ -20,7 +20,7 @@
 </resultMap>
 
 	<!-- 웹툰 요일별 검색 -->
-	<select id="weekSelect"	resultMap="naverWebtoonVO">
+	<select id="weekSelect"	resultMap="webtoonVO">
 		SELECT
 			NW.WEBTOON_NUM, NW.WEBTOON_TITLE, NW.WEBTOON_COVER, W.WEEK_DAY
 		FROM
@@ -31,14 +31,14 @@
 	</select>
 	
 	<!-- 해당 웹툰 검색 -->
-	<select id="webtoonSelect" resultMap="naverWebtoonVO">
+	<select id="webtoonSelect" resultMap="webtoonVO">
 		SELECT * 
 		FROM NAVER_WEBTOON 
 		WHERE WEBTOON_NUM = #{webtoonNum}  
 	</select>
 	
 	<!-- 에피소드 생성 -->
-	<insert id="episodeInsert" parameterType="com.comic.domain.WebtoonEpisodeVO">
+	<insert id="episodeInsert" parameterType="com.comic.domain.EpisodeVO">
 	INSERT INTO WEBTOON_EPISODE 
 	(EPISODE_NUM, EPISODE_TITLE, EPISODE_TEXT, EPISODE_COVER, WEBTOON_NUM) 
 	VALUES 
@@ -46,7 +46,7 @@
 	</insert>
 	
 	<!-- 에피소드 검색 -->
-	<select id="episodeSelect" resultMap="naverWebtoonVO">
+	<select id="episodeSelect" resultMap="webtoonVO">
 		SELECT * 
 		FROM WEBTOON_EPISODE 
 		WHERE WEBTOON_NUM = #{webtoonNum}

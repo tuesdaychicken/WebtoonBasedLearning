@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.comic.domain.NaverWebtoonVO;
-import com.comic.domain.WebtoonEpisodeVO;
+import com.comic.domain.WebtoonVO;
+import com.comic.domain.EpisodeVO;
 
 
 public interface WebtoonContentService {
 	
-	public List<NaverWebtoonVO> webtoonWeekDay();
+	public List<WebtoonVO> webtoonWeekDay();
 	
-	public List<NaverWebtoonVO> detailWebtoonSerch(NaverWebtoonVO webtoonKey);
+	public List<WebtoonVO> detailWebtoonSerch(WebtoonVO webtoonKey);
 	
-	public List<NaverWebtoonVO> detailEpisodeAllSerch(NaverWebtoonVO webtoonKey);
+	public List<WebtoonVO> detailEpisodeAllSerch(WebtoonVO webtoonKey);
 
-	public boolean EpisodeRegister(WebtoonEpisodeVO episodeVO);
+	public boolean EpisodeRegister(EpisodeVO episodeVO);
 	
 	public HashMap<String, String> detailEpisodeSerch(Map<String, Integer> episodeKey);
 	

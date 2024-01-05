@@ -1,12 +1,12 @@
 package com.comic.service;
 
 
-import com.comic.domain.NaverMemberVO;
+import com.comic.domain.MemberVO;
 
 
 public interface UserAccessService {
 	
-	public int MemberRegister(NaverMemberVO member);
+	public int MemberRegister(MemberVO member);
 	
-	public NaverMemberVO MemberLogin(NaverMemberVO user_NAME);
+	public MemberVO MemberLogin(MemberVO user_NAME);
 }

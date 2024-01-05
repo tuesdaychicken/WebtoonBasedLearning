@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.comic.domain.NaverMemberVO;
+import com.comic.domain.MemberVO;
 import com.comic.mapper.UserAccessMapper;
 import com.comic.security.domain.CustomUser;
 
@@ -28,12 +28,12 @@ public class CustomUserDetailsService{
 	
 	
 	//@Override
-	public UserDetails loadUserByUsername(NaverMemberVO member) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(MemberVO member) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		
 		log.warn("Load User By UserName : "+member);
 		
-		NaverMemberVO vo = naverMemberMapper.memberSelect(member);
+		MemberVO vo = naverMemberMapper.memberSelect(member);
 		
 		log.warn("queried by member mapper : "+vo);
 		

@@ -6,10 +6,10 @@
   
 <mapper namespace="com.comic.mapper.ContentRegisterMapper">
 
-<parameterMap id="naverWebtoonVO" type="com.comic.domain.NaverWebtoonVO" />
+<parameterMap id="webtoonVO" type="com.comic.domain.WebtoonVO" />
 
 	<!-- 웹툰 생성 -->
-	<insert id="webtoonInsert" parameterMap="naverWebtoonVO">
+	<insert id="webtoonInsert" parameterMap="webtoonVO">
 		INSERT INTO NAVER_WEBTOON
 		(WEBTOON_NUM, WEBTOON_TITLE, WEBTOON_AGE, WEBTOON_INFO, WEBTOON_COVER)
 		VALUES
@@ -17,7 +17,7 @@
 	</insert>
 
 	<!-- 웹툰 요일 생성 -->
-	<insert id="webtoonWeekInsert" parameterMap="naverWebtoonVO">
+	<insert id="webtoonWeekInsert" parameterMap="webtoonVO">
 		INSERT INTO WEBTOON_WEEK
 		(WEBTOON_WEEK_NUM, WEBTOON_NUM, WEEK_NUM)
 		SELECT W_W_SEQ.NEXTVAL AS WEBTOON_WEEK_NUM, WEBTOON_NUM, #{weekNum} AS WEEK_NUM
@@ -26,7 +26,7 @@
 	</insert>
 
 	<!-- 웹툰 장르 생성 -->
-	<insert id="webtoonGenreInsert" parameterType="com.comic.domain.NaverWebtoonVO">
+	<insert id="webtoonGenreInsert" parameterType="com.comic.domain.WebtoonVO">
 		INSERT INTO WEBTOON_GENRE
 		VALUES
 		(#{genreType}, #{webtoon_TITLE}, 

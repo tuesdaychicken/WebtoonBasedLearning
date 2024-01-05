@@ -2,13 +2,13 @@ package com.comic.service;
 
 import java.util.Map;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 
 
 
 public interface ContentRegisterService {
 	
-	public boolean WebtoonRegister(NaverWebtoonVO naverWebtoonVO);
+	public boolean WebtoonRegister(WebtoonVO webtoonVO);
 	
 	public boolean WebtoonModify(Map<String, Object> webtoonObj);
 	

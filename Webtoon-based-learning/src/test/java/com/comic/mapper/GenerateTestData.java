@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.comic.domain.NaverWebtoonVO;
-import com.comic.domain.WebtoonEpisodeVO;
+import com.comic.domain.WebtoonVO;
+import com.comic.domain.EpisodeVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -26,7 +26,7 @@ public class GenerateTestData {
 	//에피소트 테스트 데이터 생성
 	@Test
 	public void EpisodeDataTest() {
-		WebtoonEpisodeVO evo = new WebtoonEpisodeVO();
+		EpisodeVO evo = new EpisodeVO();
 		
 		for(int i = 1; i < 11; i++ ) {
 			evo.setEpisodeTitle("에피소드 테스트 "+i);
@@ -41,7 +41,7 @@ public class GenerateTestData {
 	//웹툰 테스트 데이터 생성
 	@Test
 	public void WebtoonDataTest() {
-		NaverWebtoonVO nwVo = new NaverWebtoonVO();
+		WebtoonVO nwVo = new WebtoonVO();
 		
 		for(int i = 1; i <11; i++) {
 			

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
 
 /**
@@ -25,11 +25,11 @@ import com.comic.service.ContentRegisterService;
 public class ContentRegisterController {
 	
 	@Autowired
-	private final ContentRegisterService naverMypageService;
+	private final ContentRegisterService contentRegisterService;
 	
-	public ContentRegisterController(ContentRegisterService naverMypageService) {
+	public ContentRegisterController(ContentRegisterService contentRegisterService) {
 		// TODO Auto-generated constructor stub
-		this.naverMypageService = naverMypageService;
+		this.contentRegisterService = contentRegisterService;
 	}
 	
 	/** 
@@ -49,11 +49,11 @@ public class ContentRegisterController {
 	@PostMapping("/registration")
 	// @ResponseBody -> RestController를 쓰면 생략 가능
 	// @ResponseBOdy -> html 형식으로 리턴해 줄 수 있음 쉽게 얘기하면 정보 찾아보셈
-	public String webtoonNewInsert(@RequestBody NaverWebtoonVO naverWebtoonVO) {
+	public String webtoonNewInsert(@RequestBody WebtoonVO naverWebtoonVO) {
 		System.out.println("[ /mypage/registration webtoonNewInsert ]");
 		System.out.println("VO: " + naverWebtoonVO.toString());
 		
-		naverMypageService.WebtoonRegister(naverWebtoonVO);
+		contentRegisterService.WebtoonRegister(naverWebtoonVO);
 		//여기서 넣은 웹툰의 이름을 
 		return "redirect:/mypage/myActivity";
 	}
@@ -79,7 +79,7 @@ public class ContentRegisterController {
 				"webtoon_NUM", webtoon_NUM
 			);
 		
-		model.addAttribute("webtoon", naverMypageService.detailWebtoonSerch(webtoonKey));
+		model.addAttribute("webtoon", contentRegisterService.detailWebtoonSerch(webtoonKey));
 		
 		return "/mypage/webtoon_modify";
 	}
@@ -92,7 +92,7 @@ public class ContentRegisterController {
 	@PostMapping("/webtoonModify")
 	public String webtoonComicModify(@RequestParam Map<String, Object> webtoonComicObj) {
 		
-		naverMypageService.WebtoonModify(webtoonComicObj);
+		contentRegisterService.WebtoonModify(webtoonComicObj);
 		
 		return "redirect:/naver/";
 	}
@@ -109,7 +109,7 @@ public class ContentRegisterController {
 				"webtoon_NUM", webtoon_NUM
 			);
 		
-		naverMypageService.WebtoonRemove(webtoonKey);
+		contentRegisterService.WebtoonRemove(webtoonKey);
 		
 		return "redirect:/naver/";
 	}

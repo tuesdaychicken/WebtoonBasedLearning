@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 /* 
-CREATE TABLE WEBTOON_EPISODE(
+CREATE TABLE EPISODE(
    episode_NUM NUMBER(10),            --에피소드 번호
    episode_TITLE VARCHAR2 (10),      --에피소드 제목
    episode_GRAED NUMBER(4,2),         --에피소드 별점
@@ -20,7 +20,7 @@ CREATE SEQUENCE W_E_SEQ;
 */
 
 @Data
-public class WebtoonEpisodeVO {
+public class EpisodeVO {
 
 	private int episodeNum;
 	private String episodeTitle;

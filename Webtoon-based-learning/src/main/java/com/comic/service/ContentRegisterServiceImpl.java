@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 import com.comic.mapper.ContentRegisterMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -31,10 +31,10 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	}
 	
 	@Override
-	public boolean WebtoonRegister(NaverWebtoonVO naverWebtoonVO) {
+	public boolean WebtoonRegister(WebtoonVO webtoonVO) {
 		// TODO Auto-generated method stub
-		log.info("WebtoonRegister"+naverWebtoonVO.toString());
-		return (contentRegisterMapper.webtoonWeekInsert(naverWebtoonVO) == 1 ? true:false) 
+		log.info("WebtoonRegister"+webtoonVO.toString());
+		return (contentRegisterMapper.webtoonWeekInsert(webtoonVO) == 1 ? true:false) 
 				/*&& (naverMypageMapper.webtoonGenreInsert(webtoonObj) == 1 ? true:false )*/;
 	}
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 import com.comic.service.WebtoonContentService;
 
 /**
@@ -42,7 +42,7 @@ public class WebtoonContentController {
 //				"webtoonNum", webtoonNum
 //			);
 		
-		NaverWebtoonVO webtoonKey = new NaverWebtoonVO();
+		WebtoonVO webtoonKey = new WebtoonVO();
 		
 		webtoonKey.setWebtoonNum(webtoonNum);
 		

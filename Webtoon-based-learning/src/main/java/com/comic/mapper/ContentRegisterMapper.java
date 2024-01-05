@@ -4,14 +4,14 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.comic.domain.NaverWebtoonVO;
+import com.comic.domain.WebtoonVO;
 
 @Mapper
 public interface ContentRegisterMapper {
 	
-	public int webtoonInsert(NaverWebtoonVO naverWebtoonVO);
-	public int webtoonWeekInsert(NaverWebtoonVO naverWebtoonVO);
-	public int webtoonGenreInsert(NaverWebtoonVO naverWebtoonVO);
+	public int webtoonInsert(WebtoonVO naverWebtoonVO);
+	public int webtoonWeekInsert(WebtoonVO naverWebtoonVO);
+	public int webtoonGenreInsert(WebtoonVO naverWebtoonVO);
 	
 	public Map<String, String> webtoonSelect(Map<String, Integer> webtoonKey);
 	

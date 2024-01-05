@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.comic.domain.NaverMemberVO;
+import com.comic.domain.MemberVO;
 import com.comic.service.UserAccessService;
 
 
@@ -44,9 +44,9 @@ public class UserAccessController {
 	 *@return 홈페이지로 이동
 	 */
 	@PostMapping("/join")
-	public String naverSignUp(NaverMemberVO naverMemberVO) {
-		System.out.println(naverMemberVO.toString());
-		manageMemberService.MemberRegister(naverMemberVO);
+	public String naverSignUp(MemberVO memberVO) {
+		System.out.println(memberVO.toString());
+		manageMemberService.MemberRegister(memberVO);
 		
 		return "redirect:/naver/";
 	}
@@ -67,8 +67,8 @@ public class UserAccessController {
 	 *@return 홈페이지로 이동
 	 */
 	@PostMapping("/login")
-	public String naverSignIn(NaverMemberVO naverMemberVO) {
-		manageMemberService.MemberLogin(naverMemberVO);
+	public String naverSignIn(MemberVO memberVO) {
+		manageMemberService.MemberLogin(memberVO);
 		return "redirect:/naver/";
 	}
 	

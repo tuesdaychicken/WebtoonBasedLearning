@@ -35,7 +35,7 @@ CREATE TABLE WEBTOON_GENRE(
 	*/
 
 @Data
-public class NaverWebtoonVO {
+public class WebtoonVO {
 	
 	//웹툰 기본키
 	private int webtoonNum;

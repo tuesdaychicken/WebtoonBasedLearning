@@ -23,7 +23,7 @@ CREATE SEQUENCE N_M_SEQ;			--멤버 넘버
 */
 
 @Data
-public class NaverMemberVO {
+public class MemberVO {
 	private int userNum;
 	
 	private String userId;

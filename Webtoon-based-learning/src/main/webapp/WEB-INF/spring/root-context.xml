@@ -48,8 +48,8 @@
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
-	<bean id="naverMypageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.comic.mapper.NaverMypageMapper"/>
+	<bean id="contentRegisterMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.comic.mapper.ContentRegisterMapper"/>
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
@@ -62,8 +62,8 @@
 		<constructor-arg ref="userAccessMapper"/>
 	</bean>	
 	
-	<bean id="naverMypageService" class="com.comic.service.NaverMypageServiceImpl">
-		<constructor-arg ref="naverMypageMapper"/>
+	<bean id="contentRegisterService" class="com.comic.service.ContentRegisterServiceImpl">
+		<constructor-arg ref="contentRegisterMapper"/>
 	</bean>
 	
 	<bean id="webtoonContentService" class="com.comic.service.WebtoonContentServiceImpl">
