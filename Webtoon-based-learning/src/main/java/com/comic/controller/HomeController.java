@@ -18,11 +18,11 @@ import com.comic.service.WebtoonContentService;
 public class HomeController {
 
 	@Autowired
-	private final WebtoonContentService naverWebtoonService;
+	private final WebtoonContentService webtoonContentService;
 	
-	public HomeController(WebtoonContentService naverWebtoonService) {
+	public HomeController(WebtoonContentService webtoonContentService) {
 		// TODO Auto-generated constructor stub
-		this.naverWebtoonService = naverWebtoonService;
+		this.webtoonContentService = webtoonContentService;
 	}
 	/** 
 	 *@brief 함수 설명
@@ -32,7 +32,7 @@ public class HomeController {
 	@GetMapping("naver")
 	public String indexPage(Model model) {
 		
-		model.addAttribute("webtoon", naverWebtoonService.webtoonWeekDay());
+		model.addAttribute("webtoon", webtoonContentService.webtoonWeekDay());
 		return "/naver/home";
 	}
 }

@@ -11,7 +11,7 @@ import com.comic.domain.WebtoonVO;
 import com.comic.domain.EpisodeVO;
 import com.comic.mapper.WebtoonContentMapper;
 
-@Service("NaverWebtoonService")
+@Service("WebtoonContentService")
 public class WebtoonContentServiceImpl implements WebtoonContentService {
 
 	@Autowired

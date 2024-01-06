@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.comic.domain.MemberVO;
 import com.comic.mapper.UserAccessMapper;
 
-@Service("NaverMemberService")
+@Service("UserAccessService")
 public class UserAccessServiceImpl implements UserAccessService {
 	
 	

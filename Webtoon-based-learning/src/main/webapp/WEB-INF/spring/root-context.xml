@@ -20,9 +20,11 @@
 		<property name="password" value="1234"/>
 	</bean>
 	
+	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"/>
 	</bean>
+	
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -30,18 +32,23 @@
 		 <property name="mapperLocations" value="classpath:/com/comic/mapper/*.xml"/>
 	</bean>
 	
+	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>	
+	
 	
 	<bean id="transactionManager" 
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>	
 	</bean>
 	
+	
 	<aop:aspectj-autoproxy/>
 	
+	
 	<tx:annotation-driven/>
+	
 	
 	<bean id="userAccessMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.comic.mapper.UserAccessMapper"/>
@@ -58,6 +65,8 @@
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
 	
+	
+	
 	<bean id="userAccessService" class="com.comic.service.UserAccessServiceImpl">
 		<constructor-arg ref="userAccessMapper"/>
 	</bean>	
@@ -69,6 +78,8 @@
 	<bean id="webtoonContentService" class="com.comic.service.WebtoonContentServiceImpl">
 		<constructor-arg ref="webtoonContentMapper"/>
 	</bean>
+	
+	
 	<context:component-scan base-package="com.comic.service"></context:component-scan>
 	
 </beans>

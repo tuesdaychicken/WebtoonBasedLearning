@@ -10,7 +10,7 @@ import com.comic.mapper.ContentRegisterMapper;
 
 import lombok.extern.log4j.Log4j;
 
-@Service("NaverMypageService")
+@Service("ContentRegisterService")
 @Log4j
 public class ContentRegisterServiceImpl implements ContentRegisterService {
 	
