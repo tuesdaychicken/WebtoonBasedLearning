@@ -21,11 +21,11 @@ import com.comic.service.UserAccessService;
 public class UserAccessController {
 	
 	@Autowired
-	private final UserAccessService manageMemberService;
+	private final UserAccessService userAccessService;
 	
-	public UserAccessController(UserAccessService manageMemberService) {
+	public UserAccessController(UserAccessService userAccessService) {
 		// TODO Auto-generated constructor stub
-		this.manageMemberService = manageMemberService;
+		this.userAccessService = userAccessService;
 	}
 
 	/** 
@@ -46,7 +46,7 @@ public class UserAccessController {
 	@PostMapping("/join")
 	public String naverSignUp(MemberVO memberVO) {
 		System.out.println(memberVO.toString());
-		manageMemberService.MemberRegister(memberVO);
+		userAccessService.MemberRegister(memberVO);
 		
 		return "redirect:/naver/";
 	}
@@ -68,7 +68,7 @@ public class UserAccessController {
 	 */
 	@PostMapping("/login")
 	public String naverSignIn(MemberVO memberVO) {
-		manageMemberService.MemberLogin(memberVO);
+		userAccessService.MemberLogin(memberVO);
 		return "redirect:/naver/";
 	}
 	

@@ -23,15 +23,15 @@ import com.comic.service.WebtoonContentService;
 public class WebtoonContentController {
 
 	@Autowired
-	private final WebtoonContentService naverWebtoonService;
+	private final WebtoonContentService webtoonContentService;
 	
 	/** 
 	 *@brief 생성자 주입
 	 *@param 사용할 메소드가 모여 있는 인터페이스 네이버 웹툰 서비스
 	 */
-	public WebtoonContentController(WebtoonContentService naverWebtoonService) {
+	public WebtoonContentController(WebtoonContentService webtoonContentService) {
 		// TODO Auto-generated constructor stub
-		this.naverWebtoonService = naverWebtoonService;
+		this.webtoonContentService = webtoonContentService;
 	}
 	
 	//해당 웹툰 메소드
@@ -46,9 +46,9 @@ public class WebtoonContentController {
 		
 		webtoonKey.setWebtoonNum(webtoonNum);
 		
-		model.addAttribute("webtoon", naverWebtoonService.detailWebtoonSerch(webtoonKey));
+		model.addAttribute("webtoon", webtoonContentService.detailWebtoonSerch(webtoonKey));
 		
-		model.addAttribute("episode", naverWebtoonService.detailEpisodeAllSerch(webtoonKey));
+		model.addAttribute("episode", webtoonContentService.detailEpisodeAllSerch(webtoonKey));
 		
 		return "/webtoon/webtoon_list";
 	}
@@ -81,7 +81,7 @@ public class WebtoonContentController {
 					"episode_NUM", episode_NUM
 				);
 		
-		model.addAttribute("episode", naverWebtoonService.detailEpisodeSerch(episodeKey));
+		model.addAttribute("episode", webtoonContentService.detailEpisodeSerch(episodeKey));
 		
 		return "/webtoon/episode_detail";
 	}
@@ -94,7 +94,7 @@ public class WebtoonContentController {
 				"episode_NUM", episode_NUM
 			);
 	
-	model.addAttribute("episode", naverWebtoonService.detailEpisodeSerch(episodeKey));
+	model.addAttribute("episode", webtoonContentService.detailEpisodeSerch(episodeKey));
 		return "/webtoon/episode_modify";
 	}
 	
@@ -103,7 +103,7 @@ public class WebtoonContentController {
 		
 		webtoonEpisodeObj.put("webtoon_NUM", Integer.parseInt(String.valueOf(webtoonEpisodeObj.get("webtoon_NUMObj"))));
 		
-		naverWebtoonService.EpisodeModify(webtoonEpisodeObj);
+		webtoonContentService.EpisodeModify(webtoonEpisodeObj);
 		
 		return "redirect:/webtoon/list?webtoon_NUM="+webtoonEpisodeObj.get("webtoon_NUMObj");
 	}
@@ -116,7 +116,7 @@ public class WebtoonContentController {
 				"episode_NUM", episode_NUM
 			);
 		
-		naverWebtoonService.EpisodeRemove(episodeKey);
+		webtoonContentService.EpisodeRemove(episodeKey);
 		
 		return "redirect:/webtoon/list?webtoon_NUM="+ webtoon_NUM;
 	}
