@@ -30,11 +30,12 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	
 	@Override
 	public boolean WebtoonRegister(WebtoonVO webtoonVO) {
-		log.debug("ContentRegisterServiceImpl WebtoonRegister: {}", webtoonVO);
-		System.out.println("ContentRegisterServiceImpl WebtoonRegister: " + webtoonVO.toString());
+//		log.debug("ContentRegisterServiceImpl WebtoonRegister: {}", webtoonVO);
+//		System.out.println("ContentRegisterServiceImpl WebtoonRegister: " + webtoonVO.toString());
 		
 		contentRegisterMapper.webtoonInsert(webtoonVO);
 		contentRegisterMapper.webtoonWeekInsert(webtoonVO);
+		//이부분 기능추가가 필요함 이유는 두개의 쿼리를 보내는데 중간에 멈추게 되어 일부분만 올라간다면? 을 고려해야함
 		
 		return true;
 	}

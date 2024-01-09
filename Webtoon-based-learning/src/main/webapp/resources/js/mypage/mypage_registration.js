@@ -25,11 +25,14 @@ uploadBtn.addEventListener('click', () => {
 			'Content-Type' : 'application/json;charset=utf-8'},
 		body: JSON.stringify(webtoonVO)
 	})
-	.then('Success POST')
+	
 	.catch((error) => console.error('에러가 발생했어 = ', error))
 		/*.then((response) => response.json())
 		.then((data) => console.log(data))*/
-		
+	
+	window.location.href = "myActivity"
+	
+	
 });
 
 //.해서 들어가는 방법은 체이닝 기법이라 한다

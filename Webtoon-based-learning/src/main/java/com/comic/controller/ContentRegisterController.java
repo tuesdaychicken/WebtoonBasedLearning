@@ -50,7 +50,8 @@ public class ContentRegisterController {
 	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
 		System.out.println("[ /mypage/registration webtoonNewInsert ]");
-		System.out.println("VO: " + webtoonVO.toString());
+		
+//		System.out.println("VO: " + webtoonVO.toString());
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		
