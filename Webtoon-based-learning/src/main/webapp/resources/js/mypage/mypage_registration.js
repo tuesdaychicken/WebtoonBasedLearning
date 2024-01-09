@@ -8,27 +8,22 @@ const uploadBtn = document.querySelector('.webtoon-upload-btn');
 uploadBtn.addEventListener('click', () => {
 	console.log('click upload button!');
 	
-	/*const naverWebtoonVO = {
-		webtoonTitle: 'webtoonTitle',
-		webtoonAge: 'webtoonAge',
-		weekDay: 'weekDay',
-		webtoonInfo: 'webtoonInfo',
-		webtoonCover: 'webtoonCover',
-		webtoonIntrdCorver: 'webtoonIntrdCorver'
-	}*/
+	const webtoonVO = {
+		webtoonTitle: document.getElementById('webtoonTitle').value,
+		webtoonAge: document.getElementById('webtoonAge').value,
+		weekDay: document.getElementById('weekDay').value,
+		webtoonInfo: document.getElementById('webtoonInfo').value,
+		webtoonCover: document.getElementById('webtoonCover').value,
+		webtoonIntrdCorver: document.getElementById('webtoonIntrdCorver').value
+	}
+	
+	console.log(webtoonVO);
 	
 	fetch('/mypage/registration', {
 		method: 'POST',
 		headers: {
-			'Content-Type' : 'application/json;charset=utf-8'
-		},
-		body: JSON.stringify(
-			document.getElementById(webtoonTitle),
-			document.getElementById(webtoonAge),
-			document.getElementById(weekDay),
-			document.getElementById(webtoonInfo),
-			document.getElementById(webtoonCover),
-			document.getElementById(webtoonIntrdCorver))
+			'Content-Type' : 'application/json;charset=utf-8'},
+		body: JSON.stringify(webtoonVO)
 	})
 	.then('Success POST')
 	.catch((error) => console.error('에러가 발생했어 = ', error))

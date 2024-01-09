@@ -75,7 +75,7 @@
 	<br> 
 	
 	<div>
-		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기" class="request" onclick="location.href='/mypage/myActivity'">
+		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기" class="request">
 	</div>
 
 </body>

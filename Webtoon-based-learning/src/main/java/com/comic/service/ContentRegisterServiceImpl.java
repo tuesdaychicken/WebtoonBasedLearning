@@ -9,18 +9,16 @@ import com.comic.domain.WebtoonVO;
 import com.comic.mapper.ContentRegisterMapper;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 @Service("ContentRegisterService")
-@Log4j
+@Slf4j
 public class ContentRegisterServiceImpl implements ContentRegisterService {
 	
 	@Autowired
 	private final ContentRegisterMapper contentRegisterMapper;
 	
-	
-	
 	public ContentRegisterServiceImpl(ContentRegisterMapper contentRegisterMapper) {
-		super();
 		this.contentRegisterMapper = contentRegisterMapper;
 	}
 
@@ -32,10 +30,13 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	
 	@Override
 	public boolean WebtoonRegister(WebtoonVO webtoonVO) {
-		// TODO Auto-generated method stub
-		log.info("WebtoonRegister"+webtoonVO.toString());
-		return (contentRegisterMapper.webtoonWeekInsert(webtoonVO) == 1 ? true:false) 
-				/*&& (naverMypageMapper.webtoonGenreInsert(webtoonObj) == 1 ? true:false )*/;
+		log.debug("ContentRegisterServiceImpl WebtoonRegister: {}", webtoonVO);
+		System.out.println("ContentRegisterServiceImpl WebtoonRegister: " + webtoonVO.toString());
+		
+		contentRegisterMapper.webtoonInsert(webtoonVO);
+		contentRegisterMapper.webtoonWeekInsert(webtoonVO);
+		
+		return true;
 	}
 
 	@Override

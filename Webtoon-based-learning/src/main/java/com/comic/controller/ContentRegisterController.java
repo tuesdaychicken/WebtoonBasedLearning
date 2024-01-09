@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
@@ -48,13 +47,13 @@ public class ContentRegisterController {
 	 */
 	@PostMapping("/registration")
 	// @ResponseBody -> RestController를 쓰면 생략 가능
-	// @ResponseBOdy -> html 형식으로 리턴해 줄 수 있음 쉽게 얘기하면 정보 찾아보셈
-	public String webtoonNewInsert(@RequestBody WebtoonVO naverWebtoonVO) {
+	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
+	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
 		System.out.println("[ /mypage/registration webtoonNewInsert ]");
-		System.out.println("VO: " + naverWebtoonVO.toString());
+		System.out.println("VO: " + webtoonVO.toString());
 		
-		contentRegisterService.WebtoonRegister(naverWebtoonVO);
-		//여기서 넣은 웹툰의 이름을 
+		contentRegisterService.WebtoonRegister(webtoonVO);
+		
 		return "redirect:/mypage/myActivity";
 	}
 	
