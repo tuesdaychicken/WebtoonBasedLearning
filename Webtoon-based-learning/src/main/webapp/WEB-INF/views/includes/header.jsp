@@ -33,7 +33,7 @@
 
                 <li> <a href="#" id="menu_bar_font"> 웹툰 </a> </li>
                 <li> <a href="#" id="menu_bar_font"> 도전만화 </a> </li>
-                <li> <a href="mypage/myActivity" id="menu_bar_font"> 마이페이지 </a> </li>
+                <li> <a href="/mypage/myActivity" id="menu_bar_font"> 마이페이지 </a> </li>
 
             </ul>
         </div>

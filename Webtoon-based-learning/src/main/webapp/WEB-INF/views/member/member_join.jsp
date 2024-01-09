@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="/resources/css/member/member_join.css" />
 </head>
 <body>
+<%@ include file="../includes/header.jsp"%>
 
 	<!-- header -->
 	<div id="header">
