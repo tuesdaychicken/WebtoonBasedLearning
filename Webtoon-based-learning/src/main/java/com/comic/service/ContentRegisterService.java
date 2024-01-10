@@ -10,10 +10,10 @@ public interface ContentRegisterService {
 	
 	public boolean WebtoonRegister(WebtoonVO webtoonVO);
 	
-	public boolean WebtoonModify(Map<String, Object> webtoonObj);
+	public boolean WebtoonModify(WebtoonVO we);
 	
 	public boolean WebtoonRemove(Map<String, Integer> webtoonKey);
 	
-	public Map<String, String> detailWebtoonSerch(Map<String, Integer> webtoonKey);
+	public WebtoonVO detailWebtoonSerch(WebtoonVO webtoonKey);
 	
 }

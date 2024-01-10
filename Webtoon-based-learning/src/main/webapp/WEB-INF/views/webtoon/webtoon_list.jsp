@@ -7,37 +7,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%@ include file="../includes/header.jsp" %>
 
 
+<c:forEach var="webtoon" items="${webtoonVO}">
+	
+	<br>
+	<br>
+	<a href="/admin/webtoonModify?webtoonNum=${webtoon.webtoonNum}">웹툰수정</a>
+	
+	<br>
+	<br>
+	<a href="/admin/webtoonRemove?webtoonNum=${webtoon.webtoonNum}">웹툰삭제</a>
+	<br>
+	<br>
+	
+	<a href="/admin/episode?webtoonNum=${webtoon.webtoonNum}">에피소드 등록</a>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	제목 : ${webtoon.webtoonTitle}
+	<br>
+	<br>
+	이용가 : ${webtoon.webtoonAge}
+	<br>
+	<br>
+	소개 : ${webtoon.webtoonInfo}
+	<br>
+	<br>
+		<br>
+		<br>
+</c:forEach>
 
-<br>
-<br>
-<a href="/mypage/webtoonModify?webtoon_NUM=${webtoon.webtoon_NUM}">웹툰수정</a>
 
-<br>
-<br>
-<a href="/mypage/webtoonRemove?webtoon_NUM=${webtoon.webtoon_NUM}">웹툰삭제</a>
-<br>
-<br>
-
-<a href="/webtoon/episode?webtoon_NUM=${webtoon.webtoon_NUM}"> <p>에피소드 등록</p> </a>
-<br>
-<br>
-<br>
-<br>
-
-
-웹툰 제목 : ${webtoon.webtoon_TITLE}
-<br>
-<br>
-이용가 : ${webtoon.webtoon_AGE}
-<br>
-<br>
-소개 : ${webtoon.webtoon_INFO}
-<br>
-<br>
 
 <c:forEach var="epi" items="${episode}">
 	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
+import com.comic.service.WebtoonContentService;
 
 /**
  *@brief 마이페이지 기능 관련 Controller
@@ -25,11 +26,12 @@ public class ContentRegisterController {
 	
 	@Autowired
 	private final ContentRegisterService contentRegisterService;
-	
+		
 	public ContentRegisterController(ContentRegisterService contentRegisterService) {
 		// TODO Auto-generated constructor stub
 		this.contentRegisterService = contentRegisterService;
 	}
+	
 	
 	/** 
 	 *@brief 웹툰을 등록하기 위한 Service 호출
@@ -74,10 +76,9 @@ public class ContentRegisterController {
 	 *@return 수정 페이지로 이동
 	 */
 	@GetMapping("/webtoonModify")
-	public String webtoonComicModify(int webtoon_NUM, Model model) {
-		Map<String, Integer> webtoonKey = Map.of(
-				"webtoon_NUM", webtoon_NUM
-			);
+	public String webtoonComicModify(int webtoonNum, Model model) {
+		
+		WebtoonVO webtoonKey = new WebtoonVO();
 		
 		model.addAttribute("webtoon", contentRegisterService.detailWebtoonSerch(webtoonKey));
 		
@@ -90,9 +91,9 @@ public class ContentRegisterController {
 	 *@return 홈페이지로 이동
 	 */
 	@PostMapping("/webtoonModify")
-	public String webtoonComicModify(@RequestParam Map<String, Object> webtoonComicObj) {
+	public String webtoonComicModify(@RequestParam WebtoonVO webtoonVO) {
 		
-		contentRegisterService.WebtoonModify(webtoonComicObj);
+		contentRegisterService.WebtoonModify(webtoonVO);
 		
 		return "redirect:/naver/";
 	}

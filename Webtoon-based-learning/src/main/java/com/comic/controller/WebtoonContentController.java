@@ -1,11 +1,13 @@
 package com.comic.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,7 @@ import com.comic.service.WebtoonContentService;
  *@author 황 규 성
  */
 @Controller
-@RequestMapping("/webtoon/*")
+@RequestMapping(value="/webtoon")
 public class WebtoonContentController {
 
 	@Autowired
@@ -45,8 +47,12 @@ public class WebtoonContentController {
 		WebtoonVO webtoonKey = new WebtoonVO();
 		
 		webtoonKey.setWebtoonNum(webtoonNum);
+
+		List<WebtoonVO> vo = webtoonContentService.detailWebtoonSerch(webtoonKey);
 		
-		model.addAttribute("webtoon", webtoonContentService.detailWebtoonSerch(webtoonKey));
+		System.out.println("<WebtoonContentController>"+vo);
+		
+		model.addAttribute("webtoonVO", webtoonContentService.detailWebtoonSerch(webtoonKey));
 		
 		model.addAttribute("episode", webtoonContentService.detailEpisodeAllSerch(webtoonKey));
 		

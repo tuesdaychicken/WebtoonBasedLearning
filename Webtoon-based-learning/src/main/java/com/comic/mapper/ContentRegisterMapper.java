@@ -13,9 +13,9 @@ public interface ContentRegisterMapper {
 	public int webtoonWeekInsert(WebtoonVO naverWebtoonVO);
 	public int webtoonGenreInsert(WebtoonVO naverWebtoonVO);
 	
-	public Map<String, String> webtoonSelect(Map<String, Integer> webtoonKey);
+	public WebtoonVO webtoonSelect(WebtoonVO webtoonKey);
 	
-	public int webtoonUpdate(Map<String, Object> webtoonObj);
+	public int webtoonUpdate(WebtoonVO webtoonVO);
 	
 	public int webtoonDelete(Map<String, Integer> webtoonKey);
 	public int webtoonWeekDelete(Map<String, Integer> webtoonKey);

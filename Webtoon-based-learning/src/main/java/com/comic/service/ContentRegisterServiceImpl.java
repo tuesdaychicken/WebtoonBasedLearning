@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 import com.comic.domain.WebtoonVO;
 import com.comic.mapper.ContentRegisterMapper;
 
-import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
-
 @Service("ContentRegisterService")
-@Slf4j
 public class ContentRegisterServiceImpl implements ContentRegisterService {
 	
 	@Autowired
@@ -23,7 +19,7 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	}
 
 	@Override
-	public Map<String, String> detailWebtoonSerch(Map<String, Integer> webtoonKey) {
+	public WebtoonVO detailWebtoonSerch(WebtoonVO webtoonKey) {
 		// TODO Auto-generated method stub
 		return  contentRegisterMapper.webtoonSelect(webtoonKey);
 	}
@@ -41,9 +37,9 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	}
 
 	@Override
-	public boolean WebtoonModify(Map<String, Object> webtoonObj) {
+	public boolean WebtoonModify(WebtoonVO webtoonVO) {
 		// TODO Auto-generated method stub
-		return contentRegisterMapper.webtoonUpdate(webtoonObj) == 1 ? true:false;
+		return contentRegisterMapper.webtoonUpdate(webtoonVO) == 1 ? true:false;
 	}
 
 	@Override
@@ -53,9 +49,6 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 				&& (contentRegisterMapper.webtoonWeekDelete(webtoonKey) == 1 ? true:false)
 				&& (contentRegisterMapper.webtoonGenreDelete(webtoonKey) == 1 ? true:false);
 	}
-
-	
-	
 	
 
 }
