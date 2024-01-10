@@ -9,7 +9,7 @@
 <body>
 
 <% 
-	response.sendRedirect(request.getContextPath()+"/naver");
+	response.sendRedirect(request.getContextPath()+"/main");
 %>
 </body>
 </html>

@@ -81,5 +81,5 @@
 </body>
 
 
-<script type="text/javascript" src="/resources/js/mypage/mypage_registration.js"></script> 
+<script type="text/javascript" src="/resources/js/admin/adminPage_registration.js"></script> 
 </html>

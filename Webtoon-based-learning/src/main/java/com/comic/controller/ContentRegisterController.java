@@ -20,7 +20,7 @@ import com.comic.service.ContentRegisterService;
  *@author 황 규 성
  */
 @Controller
-@RequestMapping(value="/mypage")
+@RequestMapping(value="/admin")
 public class ContentRegisterController {
 	
 	@Autowired
@@ -37,7 +37,7 @@ public class ContentRegisterController {
 	 */
 	@GetMapping("/registration")
 	public String webtoonNewInsert() {
-		return "/mypage/mypage_registration";
+		return "/admin/admin_registration";
 	}
 	
 	/** 
@@ -49,13 +49,13 @@ public class ContentRegisterController {
 	// @ResponseBody -> RestController를 쓰면 생략 가능
 	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
-		System.out.println("[ /mypage/registration webtoonNewInsert ]");
+		System.out.println("[ /admin/registration webtoonNewInsert ]");
 		
 //		System.out.println("VO: " + webtoonVO.toString());
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		
-		return "redirect:/mypage/myActivity";
+		return "redirect:/admin/adminActivity";
 	}
 	
 	
@@ -63,9 +63,9 @@ public class ContentRegisterController {
 	 *@brief 마이 페이지로 이동하는 Service 호출?
 	 *@return 마이 페이지로 이동
 	 */
-	@GetMapping("/myActivity")
+	@GetMapping("/adminActivity")
 	public String myActivity() {
-		return "/mypage/mypage_activity";
+		return "/admin/admin_activity";
 	}
 	
 	/** 
@@ -81,7 +81,7 @@ public class ContentRegisterController {
 		
 		model.addAttribute("webtoon", contentRegisterService.detailWebtoonSerch(webtoonKey));
 		
-		return "/mypage/webtoon_modify";
+		return "/admin/webtoon_modify";
 	}
 
 	/** 

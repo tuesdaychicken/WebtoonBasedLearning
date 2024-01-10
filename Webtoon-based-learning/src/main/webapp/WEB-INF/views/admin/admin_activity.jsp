@@ -13,6 +13,6 @@
 
 여기로 왔다 내작품 나오느 곳
 
-<button onclick="location.href='/mypage/registration'">웹툰 올리기</button>
+<button onclick="location.href='/admin/registration'">웹툰 올리기</button>
 </body>
 </html>
