@@ -17,12 +17,6 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	public ContentRegisterServiceImpl(ContentRegisterMapper contentRegisterMapper) {
 		this.contentRegisterMapper = contentRegisterMapper;
 	}
-
-	@Override
-	public WebtoonVO detailWebtoonSerch(WebtoonVO webtoonKey) {
-		// TODO Auto-generated method stub
-		return  contentRegisterMapper.webtoonSelect(webtoonKey);
-	}
 	
 	@Override
 	public boolean WebtoonRegister(WebtoonVO webtoonVO) {

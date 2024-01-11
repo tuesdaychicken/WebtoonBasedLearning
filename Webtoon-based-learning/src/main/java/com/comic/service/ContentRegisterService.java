@@ -14,6 +14,6 @@ public interface ContentRegisterService {
 	
 	public boolean WebtoonRemove(Map<String, Integer> webtoonKey);
 	
-	public WebtoonVO detailWebtoonSerch(WebtoonVO webtoonKey);
+	
 	
 }

@@ -13,8 +13,6 @@ public interface ContentRegisterMapper {
 	public int webtoonWeekInsert(WebtoonVO naverWebtoonVO);
 	public int webtoonGenreInsert(WebtoonVO naverWebtoonVO);
 	
-	public WebtoonVO webtoonSelect(WebtoonVO webtoonKey);
-	
 	public int webtoonUpdate(WebtoonVO webtoonVO);
 	
 	public int webtoonDelete(Map<String, Integer> webtoonKey);

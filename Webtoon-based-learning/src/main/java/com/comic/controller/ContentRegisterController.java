@@ -26,10 +26,12 @@ public class ContentRegisterController {
 	
 	@Autowired
 	private final ContentRegisterService contentRegisterService;
-		
-	public ContentRegisterController(ContentRegisterService contentRegisterService) {
+	private final WebtoonContentService webtoonContentService;	
+	
+	public ContentRegisterController(ContentRegisterService contentRegisterService, WebtoonContentService webtoonContentService) {
 		// TODO Auto-generated constructor stub
 		this.contentRegisterService = contentRegisterService;
+		this.webtoonContentService = webtoonContentService;
 	}
 	
 	
@@ -39,7 +41,7 @@ public class ContentRegisterController {
 	 */
 	@GetMapping("/registration")
 	public String webtoonNewInsert() {
-		return "/admin/admin_registration";
+		return "/admin/webtoon_registration";
 	}
 	
 	/** 
@@ -79,9 +81,7 @@ public class ContentRegisterController {
 	public String webtoonComicModify(int webtoonNum, Model model) {
 		
 		WebtoonVO webtoonKey = new WebtoonVO();
-		
-		model.addAttribute("webtoon", contentRegisterService.detailWebtoonSerch(webtoonKey));
-		
+		model.addAttribute("webtoon",webtoonContentService.detailWebtoonSerch(webtoonKey));
 		return "/admin/webtoon_modify";
 	}
 
