@@ -44,7 +44,7 @@
 	</update>
 	
 	<!-- 웹툰 데이터 삭제 -->
-	<delete id="webtoonDelete">
+	<delete id="webtoonDelete" parameterMap="webtoonVO">
 		DELETE FROM NAVER_WEBTOON
 		WHERE webtoon_NUM = #{webtoonNum}
 	</delete>
@@ -52,13 +52,13 @@
 	<!-- 삭제하는 웹툰 요일 정보 삭제 -->
 	<delete id="webtoonWeekDelete">
 		DELETE FROM WEBTOON_WEEK
-		WHERE webtoon_NUM = #{webtoon_NUM}
+		WHERE webtoon_NUM = #{webtoonNum}
 	</delete>
 	
 	<!-- 삭제하는 웹툰 장르 정보 삭제 -->
 	<delete id="webtoonGenreDelete">
 		DELETE FROM WEBTOON_GENRE
-		WHERE webtoon_NUM = #{webtoon_NUM}
+		WHERE webtoon_NUM = #{webtoonNum}
 	</delete>
 </mapper>
 

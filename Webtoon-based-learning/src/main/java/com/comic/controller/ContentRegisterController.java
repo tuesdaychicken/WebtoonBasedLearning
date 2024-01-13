@@ -64,18 +64,9 @@ public class ContentRegisterController {
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
 		System.out.println("[ /admin/registration webtoonNewInsert ]");
 		
-//		System.out.println("VO: " + webtoonVO.toString());
+		System.out.println("VO: " + webtoonVO.toString());
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println(webtoonVO);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		return "redirect:/admin/adminActivity";
 	}
 	
@@ -125,11 +116,10 @@ public class ContentRegisterController {
 	 *@return 홈페이로 이동
 	 */
 	@GetMapping("/webtoonRemove")
-	public String webtoonComicRemove(int webtoon_NUM, Model model) {
-		
-		Map<String, Integer> webtoonKey = Map.of(
-				"webtoon_NUM", webtoon_NUM
-			);
+	public String webtoonComicRemove(int webtoonNum, Model model) {
+
+		WebtoonVO webtoonKey = new WebtoonVO();
+		webtoonKey.setWebtoonNum(webtoonNum);
 		
 		contentRegisterService.WebtoonRemove(webtoonKey);
 		

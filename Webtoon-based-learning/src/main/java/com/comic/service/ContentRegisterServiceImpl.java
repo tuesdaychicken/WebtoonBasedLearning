@@ -37,11 +37,12 @@ public class ContentRegisterServiceImpl implements ContentRegisterService {
 	}
 
 	@Override
-	public boolean WebtoonRemove(Map<String, Integer> webtoonKey) {
+	public boolean WebtoonRemove(WebtoonVO webtoonNum) {
 		// TODO Auto-generated method stub
-		return (contentRegisterMapper.webtoonDelete(webtoonKey) == 1 ? true:false)
-				&& (contentRegisterMapper.webtoonWeekDelete(webtoonKey) == 1 ? true:false)
-				&& (contentRegisterMapper.webtoonGenreDelete(webtoonKey) == 1 ? true:false);
+		contentRegisterMapper.webtoonDelete(webtoonNum);
+		contentRegisterMapper.webtoonWeekDelete(webtoonNum);
+//		contentRegisterMapper.webtoonGenreDelete(webtoonNum) == 1 ? true:false;
+		return true;
 	}
 	
 

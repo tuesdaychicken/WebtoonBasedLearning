@@ -45,7 +45,7 @@
 
 <c:forEach var="epi" items="${episode}">
 	
-	에피소드 제목 : <a href="/webtoon/detail?webtoon_NUM=${epi.webtoon_NUM}&episode_NUM=${epi.episode_NUM}">${epi.episode_TITLE}</a>
+	에피소드 제목 : <a href="/webtoon/detail?webtoonNum=${epi.webtoonNum}&episode_NUM=${epi.episodeNum}">${epi.episodeTitle}</a>
 	<br>
 	<br>
 </c:forEach>

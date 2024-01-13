@@ -3,15 +3,26 @@
  * registration.jsp 에서 post로 동작 후
  */
 
+
+
 const uploadBtn = document.querySelector('.webtoon-upload-btn');
 
 uploadBtn.addEventListener('click', () => {
-	console.log('click upload button!');
+	
+	console.log(document.getElementsByName('week'));
+	
+	const gender = document.getElementsByName('week');
+	var genderChoice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+	for(var i=0; i<gender.length; i++) {
+		 if(gender[i].checked) {
+   			 genderChoice = gender[i].value;
+		 }
+	}
 	
 	const webtoonVO = {
 		webtoonTitle: document.getElementById('webtoonTitle').value,
 		webtoonAge: document.getElementById('webtoonAge').value,
-		weekDay: document.getElementById('weekDay').value,
+		weekDay: genderChoice,
 		webtoonInfo: document.getElementById('webtoonInfo').value,
 		webtoonCover: document.getElementById('webtoonCover').value
 	}
@@ -29,7 +40,7 @@ uploadBtn.addEventListener('click', () => {
 		/*.then((response) => response.json())
 		.then((data) => console.log(data))*/
 	
-	window.location.href = "adminActivity"
+	/*window.location.href = "adminActivity"*/
 	
 	
 });

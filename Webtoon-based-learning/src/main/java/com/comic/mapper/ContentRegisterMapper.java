@@ -15,8 +15,8 @@ public interface ContentRegisterMapper {
 	
 	public int webtoonUpdate(WebtoonVO webtoonVO);
 	
-	public int webtoonDelete(Map<String, Integer> webtoonKey);
-	public int webtoonWeekDelete(Map<String, Integer> webtoonKey);
-	public int webtoonGenreDelete(Map<String, Integer> webtoonKey);
+	public int webtoonDelete(WebtoonVO webtoonNum);
+	public int webtoonWeekDelete(WebtoonVO webtoonNum);
+	public int webtoonGenreDelete(WebtoonVO webtoonNum);
 	
 }

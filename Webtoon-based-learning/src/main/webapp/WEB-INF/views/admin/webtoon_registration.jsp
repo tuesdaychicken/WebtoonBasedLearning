@@ -16,7 +16,6 @@
 
 	<span>작품 제목</span>
 	<input type="text" id="webtoonTitle">
-
 	<br>
 	<br> 이용가
 	<select id="webtoonAge">
@@ -48,14 +47,14 @@
 
 	<br>
 	<br> 
-	요일
-	<input type="radio" id="weekDay" value="월요일"> 월요일
-	<input type="radio" id="weekDay" value="화요일"> 화요일
-	<input type="radio" id="weekDay" value="수요일"> 수요일
-	<input type="radio" id="weekDay" value="목요일"> 목요일
-	<input type="radio" id="weekDay" value="금요일"> 금요일
-	<input type="radio" id="weekDay" value="토요일"> 토요일
-	<input type="radio" id="weekDay" value="일요일"> 일요일
+	<input type="radio" name="week" value="화요일"> 화요일
+	<input type="radio" name="week" value="수요일"> 수요일
+	<input type="radio" name="week" value="목요일"> 목요일
+	<input type="radio" name="week" value="금요일"> 금요일
+	<input type="radio" name="week" value="토요일"> 토요일
+	<input type="radio" name="week" value="일요일"> 일요일
+
+
 
 	<br>
 	<br> 줄거리
