@@ -39,7 +39,7 @@
 	<!-- 웹툰 데이터 변경 -->
 	<update id="webtoonUpdate" parameterMap="webtoonVO">
 		UPDATE NAVER_WEBTOON
-		SET webtoon_TITLE = #{webtoonTitle}, webtoon_AGE = #{webtoonAge}, webtoon_INFO = #{webtoonInfo}, webtoon_COVER = #{webtoonCover}, webtoon_INTRD_COVER = #{webtoonIntrdCover}
+		SET webtoon_TITLE = #{webtoonTitle}, webtoon_AGE = #{webtoonAge}, webtoon_INFO = #{webtoonInfo}, webtoon_COVER = #{webtoonCover}
 		WHERE webtoon_NUM = #{webtoonNum}
 	</update>
 	

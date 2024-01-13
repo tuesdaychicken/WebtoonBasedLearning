@@ -68,18 +68,16 @@
 
 	<br>
 	<br> 
-	소개 이미지 등록
-	<input type="text" id="webtoonIntrdCorver">
-	
+
 	<br>
 	<br> 
 	
 	<div>
-		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기" class="request">
+		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기">
 	</div>
 
 </body>
 
 
-<script type="text/javascript" src="/resources/js/admin/adminPage_registration.js"></script> 
+<script type="text/javascript" src="/resources/js/admin/webtoon_registration.js"></script> 
 </html>

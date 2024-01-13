@@ -1,6 +1,6 @@
 /**
  * 웹툰 등록에 사용되는 JS 파일
- * mypage_registration.jsp 에서 post로 동작 후
+ * registration.jsp 에서 post로 동작 후
  */
 
 const uploadBtn = document.querySelector('.webtoon-upload-btn');
@@ -13,13 +13,12 @@ uploadBtn.addEventListener('click', () => {
 		webtoonAge: document.getElementById('webtoonAge').value,
 		weekDay: document.getElementById('weekDay').value,
 		webtoonInfo: document.getElementById('webtoonInfo').value,
-		webtoonCover: document.getElementById('webtoonCover').value,
-		webtoonIntrdCorver: document.getElementById('webtoonIntrdCorver').value
+		webtoonCover: document.getElementById('webtoonCover').value
 	}
 	
 	console.log(webtoonVO);
 	
-	fetch('/mypage/registration', {
+	fetch('/admin/registration', {
 		method: 'POST',
 		headers: {
 			'Content-Type' : 'application/json;charset=utf-8'},

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="/resources/js/jquery/jquery-3.6.3.min.js"></script>
 </head>
 <body>
 	<%@ include file="../includes/header.jsp"%>
@@ -13,19 +13,18 @@
 	<br>
 	<br>
 
-<form action="/admin/registration" method="post" class="webtoonForm">
 	
 	<c:forEach var="webtoon" items="${webtoonVO}">
 	
-	<input type="hidden" name="webtoonNum" value="${webtoon.webtoonNum}">
+	<input type="hidden" id="webtoonNum" value="${webtoon.webtoonNum}">
 
 	<span>작품 제목</span>
-	<input type="text" name="webtoonTitle" value="${webtoon.webtoonTitle}">
+	<input type="text" id="webtoonTitle" value="${webtoon.webtoonTitle}">
 	여기 아래에 글자
 	${webtoon.webtoonTitle}
 	<br>
 	<br> 이용가
-	<select name="webtoonAge" >
+	<select id="webtoonAge" >
 		<option>--선택--</option>
 		<option>전체이용가</option>
 		<option>12세 이용가</option>
@@ -35,12 +34,12 @@
 
 	<br>
 	<br> 줄거리
-	<textarea name="webtoonInfo">${webtoon.webtoonInfo}</textarea>
+	<textarea id="webtoonInfo">${webtoon.webtoonInfo}</textarea>
 
 	<br>
 	<br> 
 	대표 이미지 등록
-	<input type="text" name="webtoonCover" value="${webtoon.webtoonCover}">
+	<input type="text" id="webtoonCover" value="${webtoon.webtoonCover}">
 
 	<br>
 	<br> 
@@ -49,13 +48,12 @@
 	<br> 
 	</c:forEach>
 	<div>
-		<input type="submit" value="웹툰 올리기" class="goRegist" onclick="location.href='/naver/'">
+		<input class="webtoon-update-btn" type="button" value="웹툰 올리기">
 	</div>
 
-</form>
 
 </body>
 
-
+<script type="text/javascript" src="/resources/js/admin/webtoon_modify.js"></script>
 
 </html>
