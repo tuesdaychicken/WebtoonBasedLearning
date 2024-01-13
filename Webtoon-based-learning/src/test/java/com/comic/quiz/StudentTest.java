@@ -1,4 +1,4 @@
-package com.comic.test1;
+package com.comic.quiz;
 
 import org.junit.Test;
 
@@ -34,6 +34,7 @@ public class StudentTest {
 
         System.out.println("이름: " + student1.name + " 나이: " + student1.age + " 성적: " + student1.grade);
         System.out.println("이름: " + students[0].name + " 나이: " + students[0].age + " 성적: " + students[0].grade);
+        
 	}
 	
 }

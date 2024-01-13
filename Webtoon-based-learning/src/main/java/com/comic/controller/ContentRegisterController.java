@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
@@ -34,6 +35,14 @@ public class ContentRegisterController {
 		this.webtoonContentService = webtoonContentService;
 	}
 	
+	/** 
+	 *@brief 관리자 페이지로 이동하는 Service 호출?
+	 *@return 관리자 페이지로 이동
+	 */
+	@GetMapping("/adminActivity")
+	public String myActivity() {
+		return "/admin/admin_activity";
+	}
 	
 	/** 
 	 *@brief 웹툰을 등록하기 위한 Service 호출
@@ -64,15 +73,6 @@ public class ContentRegisterController {
 	
 	
 	/** 
-	 *@brief 마이 페이지로 이동하는 Service 호출?
-	 *@return 마이 페이지로 이동
-	 */
-	@GetMapping("/adminActivity")
-	public String myActivity() {
-		return "/admin/admin_activity";
-	}
-	
-	/** 
 	 *@brief 웹툰 수정 service 호출
 	 *@param 수정하고자 하는 웹툰 번호
 	 *@return 수정 페이지로 이동
@@ -81,7 +81,10 @@ public class ContentRegisterController {
 	public String webtoonComicModify(int webtoonNum, Model model) {
 		
 		WebtoonVO webtoonKey = new WebtoonVO();
-		model.addAttribute("webtoon",webtoonContentService.detailWebtoonSerch(webtoonKey));
+		
+		webtoonKey.setWebtoonNum(webtoonNum);
+		
+		model.addAttribute("webtoonVO",webtoonContentService.detailWebtoonSerch(webtoonKey));
 		return "/admin/webtoon_modify";
 	}
 
@@ -91,7 +94,7 @@ public class ContentRegisterController {
 	 *@return 홈페이지로 이동
 	 */
 	@PostMapping("/webtoonModify")
-	public String webtoonComicModify(@RequestParam WebtoonVO webtoonVO) {
+	public String webtoonComicModify(WebtoonVO webtoonVO) {
 		
 		contentRegisterService.WebtoonModify(webtoonVO);
 		

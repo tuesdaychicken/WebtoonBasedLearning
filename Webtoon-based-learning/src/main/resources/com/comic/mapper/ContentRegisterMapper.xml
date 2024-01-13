@@ -39,14 +39,14 @@
 	<!-- 웹툰 데이터 변경 -->
 	<update id="webtoonUpdate" parameterMap="webtoonVO">
 		UPDATE NAVER_WEBTOON
-		SET webtoon_TITLE = #{webtoon_TITLE}, webtoon_AGE = #{webtoon_AGE}, webtoon_INFO = #{webtoon_INFO}, webtoon_COVER = #{webtoon_COVER}, webtoon_INTRD_COVER = #{webtoon_INTRD_COVER}
-		WHERE webtoon_NUM = #{webtoon_NUM}
+		SET webtoon_TITLE = #{webtoonTitle}, webtoon_AGE = #{webtoonAge}, webtoon_INFO = #{webtoonInfo}, webtoon_COVER = #{webtoonCover}, webtoon_INTRD_COVER = #{webtoonIntrdCover}
+		WHERE webtoon_NUM = #{webtoonNum}
 	</update>
 	
 	<!-- 웹툰 데이터 삭제 -->
 	<delete id="webtoonDelete">
 		DELETE FROM NAVER_WEBTOON
-		WHERE webtoon_NUM = #{webtoon_NUM}
+		WHERE webtoon_NUM = #{webtoonNum}
 	</delete>
 	
 	<!-- 삭제하는 웹툰 요일 정보 삭제 -->
