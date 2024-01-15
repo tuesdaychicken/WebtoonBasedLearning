@@ -9,20 +9,23 @@ const uploadBtn = document.querySelector('.webtoon-upload-btn');
 
 uploadBtn.addEventListener('click', () => {
 	
-	console.log(document.getElementsByName('week'));
+	console.log(document.querySelectorAll(".weekDay"));
 	
-	const gender = document.getElementsByName('week');
-	var genderChoice; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
-	for(var i=0; i<gender.length; i++) {
-		 if(gender[i].checked) {
-   			 genderChoice = gender[i].value;
+	
+	
+	/* const webtoonWeek = document.getElementsByName('week');*/
+	const webtoonWeek = document.querySelectorAll(".weekDay")
+	var weekChoice;
+	for(var i=0; i<webtoonWeek.length; i++) {
+		 if(webtoonWeek[i].checked) {
+   			 weekChoice = webtoonWeek[i].value;
 		 }
 	}
 	
 	const webtoonVO = {
 		webtoonTitle: document.getElementById('webtoonTitle').value,
 		webtoonAge: document.getElementById('webtoonAge').value,
-		weekDay: genderChoice,
+		weekDay: weekChoice,
 		webtoonInfo: document.getElementById('webtoonInfo').value,
 		webtoonCover: document.getElementById('webtoonCover').value
 	}

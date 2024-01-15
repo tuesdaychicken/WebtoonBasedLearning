@@ -47,12 +47,12 @@
 
 	<br>
 	<br> 
-	<input type="radio" name="week" value="화요일"> 화요일
-	<input type="radio" name="week" value="수요일"> 수요일
-	<input type="radio" name="week" value="목요일"> 목요일
-	<input type="radio" name="week" value="금요일"> 금요일
-	<input type="radio" name="week" value="토요일"> 토요일
-	<input type="radio" name="week" value="일요일"> 일요일
+	<input type="radio" class="weekDay" value="화요일"> 화요일
+	<input type="radio" class="weekDay" value="수요일"> 수요일
+	<input type="radio" class="weekDay" value="목요일"> 목요일
+	<input type="radio" class="weekDay" value="금요일"> 금요일
+	<input type="radio" class="weekDay" value="토요일"> 토요일
+	<input type="radio" class="weekDay" value="일요일"> 일요일
 
 
 
