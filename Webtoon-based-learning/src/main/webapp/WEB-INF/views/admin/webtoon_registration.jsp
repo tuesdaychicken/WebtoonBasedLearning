@@ -63,8 +63,9 @@
 	<br>
 	<br> 
 	대표 이미지 등록
-	<input type="text" id="webtoonCover">
-
+	<div class="uploadDiv">
+		<input type="file" id="webtoonCover" name="uploadFile" multiple>
+	</div>
 	<br>
 	<br> 
 
@@ -74,6 +75,8 @@
 	<div>
 		<input class="webtoon-upload-btn" type="button" value="웹툰 올리기">
 	</div>
+	
+	<script src=""></script>
 
 </body>
 

@@ -1,5 +1,6 @@
 package com.comic.controller;
 
+import java.io.File;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
 import com.comic.service.WebtoonContentService;
+
+import lombok.extern.log4j.Log4j;
 
 /**
  *@brief 마이페이지 기능 관련 Controller
@@ -22,6 +26,7 @@ import com.comic.service.WebtoonContentService;
  *@author 황 규 성
  */
 @Controller
+@Log4j
 @RequestMapping(value="/admin")
 public class ContentRegisterController {
 	
@@ -63,13 +68,37 @@ public class ContentRegisterController {
 	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
 		System.out.println("[ /admin/registration webtoonNewInsert ]");
-		
 		System.out.println("VO: " + webtoonVO.toString());
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		return "redirect:/admin/adminActivity";
 	}
 	
+	@PostMapping("/webtoonFileUpload")
+	public void webtoonFileUpload(MultipartFile[] uploadFile) {
+	
+		String uploadFolder = "C:\\upload";
+		
+		for(MultipartFile multipartFile : uploadFile) {
+			System.out.println("Upload File Name : " + multipartFile.getOriginalFilename());
+			System.out.println("Upload File Size : " + multipartFile.getSize());
+			String uploadFileName = multipartFile.getOriginalFilename();
+			
+			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			
+			System.out.println("변경된 파일 이름 : "+uploadFileName);
+			
+			File saveFile = new File(uploadFolder, uploadFileName);
+			
+			try {
+				multipartFile.transferTo(saveFile);
+			}catch (Exception e) {
+				// TODO: handle exception
+				log.error(e.getMessage());
+			}
+		}
+		
+	}
 	
 	/** 
 	 *@brief 웹툰 수정 service 호출
@@ -94,16 +123,6 @@ public class ContentRegisterController {
 	 */
 	@PostMapping("/webtoonModify")
 	public String webtoonComicModify(@RequestBody WebtoonVO webtoonVO) {
-		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println(webtoonVO);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		contentRegisterService.WebtoonModify(webtoonVO);
 		

@@ -11,9 +11,9 @@
 	<!-- 웹툰 생성 -->
 	<insert id="webtoonInsert" parameterMap="webtoonVO">
 		INSERT INTO NAVER_WEBTOON
-		(WEBTOON_NUM, WEBTOON_TITLE, WEBTOON_AGE, WEBTOON_INFO, WEBTOON_COVER)
+		(WEBTOON_NUM, WEBTOON_TITLE, WEBTOON_AGE, WEBTOON_INFO)
 		VALUES
-		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo}, #{webtoonCover})
+		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo})
 	</insert>
 
 	<!-- 웹툰 요일 생성 -->

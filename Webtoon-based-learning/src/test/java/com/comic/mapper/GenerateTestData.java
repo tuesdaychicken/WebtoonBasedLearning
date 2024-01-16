@@ -48,7 +48,7 @@ public class GenerateTestData {
 			nwVo.setWebtoonTitle("웹툰 테스트 "+i);
 			nwVo.setWebtoonAge("성인"+i);
 			nwVo.setWebtoonInfo("웹툰 설명 "+i);
-			nwVo.setWebtoonCover("웹툰 표지 "+i);
+//			nwVo.setWebtoonCover("웹툰 표지 "+i);
 			log.info(nwVo);
 			nmMapper.webtoonInsert(nwVo);
 			

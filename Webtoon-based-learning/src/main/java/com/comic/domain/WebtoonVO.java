@@ -1,6 +1,8 @@
 package com.comic.domain;
 
 
+import java.io.File;
+
 import lombok.Data;
 
 /*
@@ -46,7 +48,7 @@ public class WebtoonVO {
 	private String webtoonInfo;
 	private int webtoonGpa;
 	private int webtoonLike;
-	private String webtoonCover;
+	private File webtoonCover;
 
 	
 	//다른 테이블 연결?

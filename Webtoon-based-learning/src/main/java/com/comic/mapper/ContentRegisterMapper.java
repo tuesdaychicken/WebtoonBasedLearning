@@ -1,6 +1,5 @@
 package com.comic.mapper;
 
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 

@@ -14,7 +14,6 @@
   <result column="WEBTOON_INFO" property="webtoonInfo"/>
   <result column="WEBTOON_GPA" property="webtoonGpa"/>
   <result column="WEBTOON_LIKE" property="webtoonLike"/>
-  <result column="WEBTOON_COVER" property="webtoonCover"/>
   <result column="WEEK_DAY" property="weekDay"/>
   <result column="WEEK_NUM" property="weekNum"/>
 </resultMap>

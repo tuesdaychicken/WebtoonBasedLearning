@@ -49,7 +49,7 @@ public class MapperTest {
 		vo.setWebtoonTitle("나는 문어");
 		vo.setWebtoonAge("5");
 		vo.setWebtoonInfo("문어 난 문어");
-		vo.setWebtoonCover("sad");
+//		vo.setWebtoonCover("sad");
 		
 		log.info(vo);
 		//맵으로 변환 헤쉬맵으로
