@@ -3,6 +3,7 @@ package com.comic.controller;
 import java.io.File;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.comic.common.FolderCreate;
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
 import com.comic.service.WebtoonContentService;
@@ -39,6 +41,8 @@ public class ContentRegisterController {
 		this.contentRegisterService = contentRegisterService;
 		this.webtoonContentService = webtoonContentService;
 	}
+	
+	String fileFinalizeName;
 	
 	/** 
 	 *@brief 관리자 페이지로 이동하는 Service 호출?
@@ -67,17 +71,27 @@ public class ContentRegisterController {
 	// @ResponseBody -> RestController를 쓰면 생략 가능
 	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
-		System.out.println("[ /admin/registration webtoonNewInsert ]");
+		System.out.println("[ Controller/admin/registration webtoonNewInsert ]");
 		System.out.println("VO: " + webtoonVO.toString());
+		
+		//파일명의 유연성을 위해 담아서 보낸다
+		fileFinalizeName = webtoonVO.getWebtoonTitle();
+		System.out.println("나로 말할거 같은면 앞으로 쓰게 될 몸일 시올시다 : "+fileFinalizeName);
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		return "redirect:/admin/adminActivity";
 	}
 	
-	@PostMapping("/webtoonFileUpload")
+	/**
+	 * 파일 업로드와 폴더 생성을 동시에?*/
+	@PostMapping("/webtoonFileSave")
 	public void webtoonFileUpload(MultipartFile[] uploadFile) {
 	
-		String uploadFolder = "C:\\upload";
+		//
+		FolderCreate create = new FolderCreate();
+		create.webtoonFolderCreate(fileFinalizeName);
+		
+		String uploadFolder = "C:/upload/test";
 		
 		for(MultipartFile multipartFile : uploadFile) {
 			System.out.println("Upload File Name : " + multipartFile.getOriginalFilename());
@@ -89,6 +103,8 @@ public class ContentRegisterController {
 			System.out.println("변경된 파일 이름 : "+uploadFileName);
 			
 			File saveFile = new File(uploadFolder, uploadFileName);
+			
+//			FileUtils.copyInputStreamToFile(null, saveFile);
 			
 			try {
 				multipartFile.transferTo(saveFile);
