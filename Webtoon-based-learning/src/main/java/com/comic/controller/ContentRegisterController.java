@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.comic.common.FileUpload;
 import com.comic.common.FolderCreate;
 import com.comic.domain.WebtoonVO;
 import com.comic.service.ContentRegisterService;
@@ -42,7 +43,7 @@ public class ContentRegisterController {
 		this.webtoonContentService = webtoonContentService;
 	}
 	
-	String fileFinalizeName;
+	String fileName;
 	
 	/** 
 	 *@brief 관리자 페이지로 이동하는 Service 호출?
@@ -75,8 +76,7 @@ public class ContentRegisterController {
 		System.out.println("VO: " + webtoonVO.toString());
 		
 		//파일명의 유연성을 위해 담아서 보낸다
-		fileFinalizeName = webtoonVO.getWebtoonTitle();
-		System.out.println("나로 말할거 같은면 앞으로 쓰게 될 몸일 시올시다 : "+fileFinalizeName);
+		fileName = webtoonVO.getWebtoonTitle();
 		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		return "redirect:/admin/adminActivity";
@@ -86,33 +86,19 @@ public class ContentRegisterController {
 	 * 파일 업로드와 폴더 생성을 동시에?*/
 	@PostMapping("/webtoonFileSave")
 	public void webtoonFileUpload(MultipartFile[] uploadFile) {
-	
-		//
+		
+		//웹툰의 폴더 생성
 		FolderCreate create = new FolderCreate();
-		create.webtoonFolderCreate(fileFinalizeName);
+		System.out.println(fileName);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		create.webtoonFolderCreate(fileName);
 		
-		String uploadFolder = "C:/upload/test";
-		
-		for(MultipartFile multipartFile : uploadFile) {
-			System.out.println("Upload File Name : " + multipartFile.getOriginalFilename());
-			System.out.println("Upload File Size : " + multipartFile.getSize());
-			String uploadFileName = multipartFile.getOriginalFilename();
-			
-			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
-			
-			System.out.println("변경된 파일 이름 : "+uploadFileName);
-			
-			File saveFile = new File(uploadFolder, uploadFileName);
-			
-//			FileUtils.copyInputStreamToFile(null, saveFile);
-			
-			try {
-				multipartFile.transferTo(saveFile);
-			}catch (Exception e) {
-				// TODO: handle exception
-				log.error(e.getMessage());
-			}
-		}
+		//웹툰 이미지 관련 등록
+		FileUpload fileUpload = new FileUpload(uploadFile, fileName);
 		
 	}
 	

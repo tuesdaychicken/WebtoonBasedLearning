@@ -1,9 +1,79 @@
 package com.comic.common;
 
-public class FileUpload {
+import java.io.File;
 
-	public void webtoonFileUpload() {
-		//여기서 파일의 갯수에 따라 실행되는 메소드가 다르게 하자
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class FileUpload {
+	
+	MultipartFile[] uploadFile;
+	
+	String uploadPath = "C:/upload/test";
+	
+	/**
+	 * 인스턴스화 하면서 커버이미지 올리는 것인지 에피소드 올리는것인지 판단
+	 * */
+	public FileUpload(MultipartFile[] uploadFile, String fileName) {
+		// TODO Auto-generated constructor stub
+		this.uploadFile = uploadFile;
 		
+		if(this.uploadFile.length < 2) {
+			webtoonCoverUpload(uploadFile, fileName);
+		}else {
+			episodeFileUpload(uploadFile, fileName);
+		}
+	}
+	
+	public void webtoonCoverUpload(MultipartFile[] uploadFile, String fileName) {
+
+/*		String uploadFileName = uploadFile[0].getOriginalFilename();
+		//해당 파일의 이름을 꺼냄
+		
+//		uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+		//해당 파일 이름에서 경로 부분을 제거
+		//파일의 이름을 출력해본 결과 경로가 나타나지 않지만 언제 쓸지 모르니 냅두자
+*/		
+		File saveFile = new File(uploadPath, fileName+".JPG");
+		//해당 경로와 파일이름을 넘김
+		
+//		FileUtils.copyInputStreamToFile(null, saveFile);
+		
+		try {
+			uploadFile[0].transferTo(saveFile);
+			//파일 업로드
+		}catch (Exception e) {
+			// TODO: handle exception
+			log.error(e.getMessage());
+		}
+	}
+	
+	public void episodeFileUpload(MultipartFile[] uploadFile, String fileName) {
+		
+		for(MultipartFile multipartFile : uploadFile) {
+			System.out.println("Upload File Name : " + multipartFile.getOriginalFilename());
+			System.out.println("Upload File Size : " + multipartFile.getSize());
+			String uploadFileName = multipartFile.getOriginalFilename();
+			
+			
+			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			//이부분은 파일의 경로 부분을 제외하고 
+			
+			System.out.println("변경된 파일 이름 : "+uploadFileName);
+			
+			File saveFile = new File(uploadPath, uploadFileName);
+// 해당 경로에 해당 이름으로 넣겠다고?
+			
+//			FileUtils.copyInputStreamToFile(null, saveFile);
+			
+			try {
+				multipartFile.transferTo(saveFile);
+			}catch (Exception e) {
+				// TODO: handle exception
+				log.error(e.getMessage());
+			}
+		}
 	}
 }

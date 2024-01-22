@@ -5,7 +5,7 @@
 
 const uploadBtn = document.querySelector('.webtoon-upload-btn');
 
-uploadBtn.addEventListener('click', () => {
+uploadBtn.addEventListener('click', async () => {
 	
 	/* 웹툰 요일 상태가 checked인 요일을 weekChoice에 담아서 넘김*/
 	/* const webtoonWeek = document.getElementsByName('week');*/
@@ -34,24 +34,26 @@ uploadBtn.addEventListener('click', () => {
 		webtoonInfo: document.getElementById('webtoonInfo').value,
 	}
 	
+	try{
+	
 	/** 웹툰 데이터 업로드 */
-	fetch('/admin/registration', {
+	const response1 = await fetch('/admin/registration', {
 		method: 'POST',
 		headers: {'Content-Type' : 'application/json;charset=utf-8'},
 		body: JSON.stringify(webtoonVO)
-	})
+	});
 	
 	/** 웹툰 이미지 파일 업로드 */
-	fetch('/admin//webtoonFileSave', {
+	const response2 = await fetch('/admin//webtoonFileSave', {
 		method: 'POST',
 		body: formData
-	})
+	});
 	
-	.catch((error) => console.error('에러가 발생했어 = ', error))
-		/*.then((response) => response.json())
-		.then((data) => console.log(data))*/
+	window.location.href = "adminActivity";
 	
-	/*window.location.href = "adminActivity"*/
+	} catch(error) {
+		console.error("에러 발생 비상비상 = ", error);
+	}
 	
 	
 });

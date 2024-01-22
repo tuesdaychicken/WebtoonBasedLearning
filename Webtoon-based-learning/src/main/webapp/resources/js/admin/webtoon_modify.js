@@ -17,6 +17,8 @@ updateBtn.addEventListener('click', () => {
 	
 	console.log(webtoonVO);
 	
+	
+	
 	fetch('/admin/webtoonModify', {
 		method: 'POST',
 		headers: {
