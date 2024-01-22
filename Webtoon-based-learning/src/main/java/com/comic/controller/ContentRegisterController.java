@@ -44,6 +44,7 @@ public class ContentRegisterController {
 	}
 	
 	String fileName;
+	String pathName;
 	
 	/** 
 	 *@brief 관리자 페이지로 이동하는 Service 호출?
@@ -88,14 +89,7 @@ public class ContentRegisterController {
 	public void webtoonFileUpload(MultipartFile[] uploadFile) {
 		
 		//웹툰의 폴더 생성
-		FolderCreate create = new FolderCreate();
-		System.out.println(fileName);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		create.webtoonFolderCreate(fileName);
+		FolderCreate create = new FolderCreate(fileName, pathName);
 		
 		//웹툰 이미지 관련 등록
 		FileUpload fileUpload = new FileUpload(uploadFile, fileName);

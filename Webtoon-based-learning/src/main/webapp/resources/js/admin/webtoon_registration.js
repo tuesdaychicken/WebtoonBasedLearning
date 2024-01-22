@@ -49,7 +49,7 @@ uploadBtn.addEventListener('click', async () => {
 		body: formData
 	});
 	
-	window.location.href = "adminActivity";
+	//window.location.href = "adminActivity";
 	
 	} catch(error) {
 		console.error("에러 발생 비상비상 = ", error);
