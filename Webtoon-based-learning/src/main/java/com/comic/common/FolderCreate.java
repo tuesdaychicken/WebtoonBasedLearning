@@ -4,8 +4,12 @@ import java.io.File;
 
 public class FolderCreate {
 
-	String path = "C:/upload/webtoon/";
+	private String path = "C:/upload/webtoon/";
 	
+	
+	//중복된 폴더의 이름 생성에 따라 어떻게 나누어 줄 것인가?
+	//1. UUID 이용 		2. 날짜와 시간으로 폴더 생성
+	// 웹툰 생성날짜를 통해 같은 제목이어도 생성날짜가 다른 걸 이용
 	
 	public FolderCreate(String folderName, String pathName) {
 		// TODO Auto-generated constructor stub

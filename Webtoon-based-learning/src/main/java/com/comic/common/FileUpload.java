@@ -16,7 +16,6 @@ public class FileUpload {
 	 * */
 	public FileUpload(MultipartFile[] uploadFile, String fileName) {
 		// TODO Auto-generated constructor stub
-		
 		if(uploadFile.length < 2) {
 			webtoonCoverUpload(uploadFile, fileName);
 		}else {

@@ -7,6 +7,7 @@ const uploadBtn = document.querySelector('.webtoon-upload-btn');
 
 uploadBtn.addEventListener('click', async () => {
 	
+	
 	/* 웹툰 요일 상태가 checked인 요일을 weekChoice에 담아서 넘김*/
 	/* const webtoonWeek = document.getElementsByName('week');*/
 	const webtoonWeek = document.querySelectorAll(".weekDay")
@@ -39,7 +40,7 @@ uploadBtn.addEventListener('click', async () => {
 	/** 웹툰 데이터 업로드 */
 	const response1 = await fetch('/admin/registration', {
 		method: 'POST',
-		headers: {'Content-Type' : 'application/json;charset=utf-8'},
+		headers: {'Content-Type' : 'application/json;charset=utf-8'}, //해당부분 추가로 한글 입력 성공
 		body: JSON.stringify(webtoonVO)
 	});
 	

@@ -48,7 +48,7 @@ public class WebtoonVO {
 	private String webtoonInfo;
 	private int webtoonGpa;
 	private int webtoonLike;
-	private File webtoonCover;
+	private String webtoonCover;
 
 	
 	//다른 테이블 연결?

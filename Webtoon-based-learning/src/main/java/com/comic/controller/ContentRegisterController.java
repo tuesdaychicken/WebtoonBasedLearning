@@ -79,6 +79,9 @@ public class ContentRegisterController {
 		//파일명의 유연성을 위해 담아서 보낸다
 		fileName = webtoonVO.getWebtoonTitle();
 		
+		//이미지 경로 저장
+		webtoonVO.setWebtoonCover(webtoonVO.getWebtoonTitle());
+		
 		contentRegisterService.WebtoonRegister(webtoonVO);
 		return "redirect:/admin/adminActivity";
 	}
@@ -91,7 +94,7 @@ public class ContentRegisterController {
 		//웹툰의 폴더 생성
 		FolderCreate create = new FolderCreate(fileName, pathName);
 		
-		//웹툰 이미지 관련 등록
+		//웹툰 이미지 등록
 		FileUpload fileUpload = new FileUpload(uploadFile, fileName);
 		
 	}
