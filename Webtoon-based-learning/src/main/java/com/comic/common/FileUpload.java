@@ -31,6 +31,8 @@ public class FileUpload {
 //		uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
 		//해당 파일 이름에서 경로 부분을 제거
 		//파일의 이름을 출력해본 결과 경로가 나타나지 않지만 언제 쓸지 모르니 냅두자
+		 * UUID 적용 해야하는가?
+		 * 내일 할거 UUID 적용 안하고 그림 불러오는거 찾기
 */		
 		File saveFile = new File(uploadPath+fileName, fileName+".JPG");
 		//저장경로와 파일이름
