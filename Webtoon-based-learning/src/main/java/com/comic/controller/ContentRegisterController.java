@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -96,6 +98,21 @@ public class ContentRegisterController {
 		
 		//웹툰 이미지 등록
 		FileUpload fileUpload = new FileUpload(uploadFile, fileName);
+		
+	}
+	
+	/**
+	 * 
+	 * @param fileName
+	 * @return 
+	 */
+	@GetMapping("/display")
+	@ResponseBody
+	public ResponseEntity<byte[]> getFile(String fileName){
+		
+		ResponseEntity<byte[]> result = null;
+		
+		return result;
 		
 	}
 	
