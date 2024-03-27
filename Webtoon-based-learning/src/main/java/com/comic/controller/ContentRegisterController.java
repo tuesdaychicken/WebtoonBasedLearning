@@ -29,8 +29,9 @@ import com.comic.service.WebtoonContentService;
 import lombok.extern.log4j.Log4j;
 
 /**
- *@brief 마이페이지 기능 관련 Controller
- *@details 웹툰 CRUD 기능 service 호출
+ *@brief 관리자 기능 관련 Controller
+ *@details 웹툰/에피소드 컨텐츠의 등록과 더불어 CRUD를 하는 Class
+ *			주로 관리자가 CRUD를 하는 기능의 모임
  *@author 황 규 성
  */
 @Controller
@@ -75,8 +76,7 @@ public class ContentRegisterController {
 	 *@return 등록 후 마이페이지로 이동
 	 */
 	@PostMapping("/registration")
-	// @ResponseBody -> RestController를 쓰면 생략 가능
-	// @ResponseBody -> 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
+	// @ResponseBody -> RestController를 쓰면 생략 가능, 쉽게 말해서 html 형식으로 리턴해 줄 수 있음
 	public String webtoonNewInsert(@RequestBody WebtoonVO webtoonVO) {
 		System.out.println("[ Controller/admin/registration webtoonNewInsert ]");
 		System.out.println("VO: " + webtoonVO.toString());
@@ -104,39 +104,7 @@ public class ContentRegisterController {
 		
 	}
 	
-	/**
-	 * @param fileName
-	 * @return 
-	 */
-	@GetMapping("/display")
-	@ResponseBody
-	public ResponseEntity<byte[]> getFile(String fileName){
-		
-		log.info("file name = "+fileName);
-		
-		File file = new File("c:\\upload\\"+fileName);
-		
-		log.info("file : "+file);
-		
-		ResponseEntity<byte[]> result = null;
-		
-		try {
-			HttpHeaders header = new HttpHeaders();
-			
-			header.add("Content-Type", Files.probeContentType(file.toPath()));
-			
-			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
-			
-		}catch (IOException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		
-		
-		return result;
-		
-	}
+	
 	
 	/** 
 	 *@brief 웹툰 수정 service 호출

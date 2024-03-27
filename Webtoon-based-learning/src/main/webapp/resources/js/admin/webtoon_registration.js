@@ -45,12 +45,12 @@ uploadBtn.addEventListener('click', async () => {
 	});
 	
 	/** 웹툰 이미지 파일 업로드 */
-	const response2 = await fetch('/admin//webtoonFileSave', {
+	const response2 = await fetch('/admin/webtoonFileSave', {
 		method: 'POST',
 		body: formData
 	});
 	
-	//window.location.href = "adminActivity";
+	window.location.href = "adminActivity";
 	
 	} catch(error) {
 		console.error("에러 발생 비상비상 = ", error);

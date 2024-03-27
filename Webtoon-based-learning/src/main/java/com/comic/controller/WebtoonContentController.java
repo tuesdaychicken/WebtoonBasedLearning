@@ -16,8 +16,8 @@ import com.comic.domain.WebtoonVO;
 import com.comic.service.WebtoonContentService;
 
 /**
- *@brief 에피소드 기능 관련 Controller
- *@details 에피소드 CRUD 기능 service 호출
+ *@brief 웹툰 컨텐츠 기능 관련 Controller
+ *@details 웹툰 CRUD, 에피소드 CRUD 기능 service 호출
  *@author 황 규 성
  */
 @Controller
