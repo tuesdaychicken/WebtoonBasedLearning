@@ -1,21 +1,24 @@
 package com.comic.controller;
 
 import java.io.File;
-import java.util.Map;
+import java.io.IOException;
+import java.nio.file.Files;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import com.comic.common.FileUpload;
 import com.comic.common.FolderCreate;
@@ -45,8 +48,8 @@ public class ContentRegisterController {
 		this.webtoonContentService = webtoonContentService;
 	}
 	
-	String fileName;
-	String pathName;
+	String fileName = null;
+	String pathName = null;
 	
 	/** 
 	 *@brief 관리자 페이지로 이동하는 Service 호출?
@@ -102,7 +105,6 @@ public class ContentRegisterController {
 	}
 	
 	/**
-	 * 
 	 * @param fileName
 	 * @return 
 	 */
@@ -110,7 +112,27 @@ public class ContentRegisterController {
 	@ResponseBody
 	public ResponseEntity<byte[]> getFile(String fileName){
 		
+		log.info("file name = "+fileName);
+		
+		File file = new File("c:\\upload\\"+fileName);
+		
+		log.info("file : "+file);
+		
 		ResponseEntity<byte[]> result = null;
+		
+		try {
+			HttpHeaders header = new HttpHeaders();
+			
+			header.add("Content-Type", Files.probeContentType(file.toPath()));
+			
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+			
+		}catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
 		
 		return result;
 		

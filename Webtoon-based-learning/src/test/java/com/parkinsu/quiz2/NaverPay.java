@@ -1,4 +1,4 @@
-package com.comic.quiz2;
+package com.parkinsu.quiz2;
 
 class NaverPay implements Paymentmethods {
 

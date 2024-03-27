@@ -15,7 +15,7 @@
 		VALUES
 		(N_W_SEQ.NEXTVAL, #{webtoonTitle}, #{webtoonAge}, #{webtoonInfo})
 	</insert>
-
+	
 	<!-- 웹툰 요일 생성 -->
 	<insert id="webtoonWeekInsert" parameterMap="webtoonVO">
 		INSERT INTO WEBTOON_WEEK
