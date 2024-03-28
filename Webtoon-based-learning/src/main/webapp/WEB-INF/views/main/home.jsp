@@ -20,7 +20,7 @@
 
                 <ul class="ul">
                     <li class="spot">
-                        <div class="spot_img" style="background-color: blue;"> <img class="spot_img" src="c:\\upload\\aaa.jpg"> </div>
+                        <div class="spot_img" style="background-color: blue;"> <img class="spot_img" src="/resources/upload/webtoon/안녕/안녕.JPG"> </div>
                         <p class="title">TEST 1</p>
                         <p class="writer">TEST 1</p>
                         <p class="line_limit info">TEST 1</p>

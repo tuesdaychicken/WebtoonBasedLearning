@@ -9,7 +9,8 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class FileUpload {
 	
-	String uploadPath = "C:/upload/webtoon/";
+	private String uploadPath1 = "C:/upload/webtoon/";
+	private String uploadPath = "C:/Users/SKYPC183/git/WebtoonBasedLearning/Webtoon-based-learning/src/main/webapp/resources/upload/webtoon/";
 	
 	/**
 	 * 인스턴스화 하면서 커버이미지 올리는 것인지 에피소드 올리는것인지 판단

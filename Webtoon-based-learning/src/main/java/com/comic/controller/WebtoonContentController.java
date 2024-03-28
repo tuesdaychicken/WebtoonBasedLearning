@@ -17,7 +17,7 @@ import com.comic.service.WebtoonContentService;
 
 /**
  *@brief 웹툰 컨텐츠 기능 관련 Controller
- *@details 웹툰 CRUD, 에피소드 CRUD 기능 service 호출
+ *@details 웹툰 순위별 인기별 등 웹툰의 기능 service 호출
  *@author 황 규 성
  */
 @Controller

@@ -4,7 +4,9 @@ import java.io.File;
 
 public class FolderCreate {
 
-	private String path = "C:/upload/webtoon/";
+	private String path1 = "C:/upload/webtoon/";
+	private String path = "C:/Users/SKYPC183/git/WebtoonBasedLearning/Webtoon-based-learning/src/main/webapp/resources/upload/webtoon/";
+	// 
 	
 	
 	//중복된 폴더의 이름 생성에 따라 어떻게 나누어 줄 것인가?
